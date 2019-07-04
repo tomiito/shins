@@ -3,10 +3,8 @@ title: Awesome Title
 language_tabs:
   - shell: curl
   - javascript: JS
-  - node: Node.js
+  - node: fetch
   - java: okhttp
-  - ruby: Ruby
-  - python: Python
 toc_footers: []
 includes: []
 search: false
@@ -90,38 +88,6 @@ req.end();
 HttpResponse<String> response = Unirest.get("https://api.notihub.com/v1/users")
   .header("accept", "application/json")
   .asString();
-```
-
-```ruby
-require 'uri'
-require 'net/http'
-
-url = URI("https://api.notihub.com/v1/users")
-
-http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = true
-http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-request = Net::HTTP::Get.new(url)
-request["accept"] = 'application/json'
-
-response = http.request(request)
-puts response.read_body
-```
-
-```python
-import http.client
-
-conn = http.client.HTTPSConnection("api.notihub.com")
-
-headers = { 'accept': "application/json" }
-
-conn.request("GET", "/v1/users", headers=headers)
-
-res = conn.getresponse()
-data = res.read()
-
-print(data.decode("utf-8"))
 ```
 
 `GET /v1/users`
@@ -228,38 +194,6 @@ req.end();
 HttpResponse<String> response = Unirest.get("https://api.notihub.com/v1/users/all")
   .header("accept", "application/json")
   .asString();
-```
-
-```ruby
-require 'uri'
-require 'net/http'
-
-url = URI("https://api.notihub.com/v1/users/all")
-
-http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = true
-http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-request = Net::HTTP::Get.new(url)
-request["accept"] = 'application/json'
-
-response = http.request(request)
-puts response.read_body
-```
-
-```python
-import http.client
-
-conn = http.client.HTTPSConnection("api.notihub.com")
-
-headers = { 'accept': "application/json" }
-
-conn.request("GET", "/v1/users/all", headers=headers)
-
-res = conn.getresponse()
-data = res.read()
-
-print(data.decode("utf-8"))
 ```
 
 `GET /v1/users/all`

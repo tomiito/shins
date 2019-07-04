@@ -39,7 +39,7 @@ window.onpopstate = function() {
 <!-- Renderer: Shins v2.3.2-4 -->
   </head>
 
-  <body data-languages="[&quot;shell&quot;,&quot;javascript&quot;,&quot;node&quot;,&quot;java&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body data-languages="[&quot;shell&quot;,&quot;javascript&quot;,&quot;node&quot;,&quot;java&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -60,19 +60,11 @@ window.onpopstate = function() {
             
           
             
-              <a href="#" data-language-name="node">Node.js</a>
+              <a href="#" data-language-name="node">fetch</a>
             
           
             
               <a href="#" data-language-name="java">okhttp</a>
-            
-          
-            
-              <a href="#" data-language-name="ruby">Ruby</a>
-            
-          
-            
-              <a href="#" data-language-name="python">Python</a>
             
           
         </div>
@@ -195,34 +187,6 @@ req.end();
 <pre class="highlight tab tab-java"><code>HttpResponse response = Unirest.get(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>)
   .header(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>)
   .asString();
-</code></pre>
-<pre class="highlight tab tab-ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'uri'</span>
-<span class="hljs-keyword">require</span> <span class="hljs-string">'net/http'</span>
-
-url = URI(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>)
-
-http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = <span class="hljs-literal">true</span>
-http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-request = Net::HTTP::Get.new(url)
-request[<span class="hljs-string">"accept"</span>] = <span class="hljs-string">'application/json'</span>
-
-response = http.request(request)
-puts response.read_body
-</code></pre>
-<pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> http.client
-
-conn = http.client.HTTPSConnection(<span class="hljs-string">"api.notihub.com"</span>)
-
-headers = { <span class="hljs-string">'accept'</span>: <span class="hljs-string">"application/json"</span> }
-
-conn.request(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"/v1/users"</span>, headers=headers)
-
-res = conn.getresponse()
-data = res.read()
-
-print(data.decode(<span class="hljs-string">"utf-8"</span>))
 </code></pre>
 <p><code>GET /v1/users</code></p>
 <blockquote>
@@ -369,34 +333,6 @@ req.end();
 <pre class="highlight tab tab-java"><code>HttpResponse response = Unirest.get(<span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>)
   .header(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>)
   .asString();
-</code></pre>
-<pre class="highlight tab tab-ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'uri'</span>
-<span class="hljs-keyword">require</span> <span class="hljs-string">'net/http'</span>
-
-url = URI(<span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>)
-
-http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = <span class="hljs-literal">true</span>
-http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-request = Net::HTTP::Get.new(url)
-request[<span class="hljs-string">"accept"</span>] = <span class="hljs-string">'application/json'</span>
-
-response = http.request(request)
-puts response.read_body
-</code></pre>
-<pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> http.client
-
-conn = http.client.HTTPSConnection(<span class="hljs-string">"api.notihub.com"</span>)
-
-headers = { <span class="hljs-string">'accept'</span>: <span class="hljs-string">"application/json"</span> }
-
-conn.request(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"/v1/users/all"</span>, headers=headers)
-
-res = conn.getresponse()
-data = res.read()
-
-print(data.decode(<span class="hljs-string">"utf-8"</span>))
 </code></pre>
 <p><code>GET /v1/users/all</code></p>
 <blockquote>
@@ -558,19 +494,11 @@ This operation does not require authentication
               
             
               
-                <a href="#" data-language-name="node">Node.js</a>
+                <a href="#" data-language-name="node">fetch</a>
               
             
               
                 <a href="#" data-language-name="java">okhttp</a>
-              
-            
-              
-                <a href="#" data-language-name="ruby">Ruby</a>
-              
-            
-              
-                <a href="#" data-language-name="python">Python</a>
               
             
           </div>
