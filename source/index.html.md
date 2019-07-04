@@ -126,7 +126,7 @@ IRestResponse response = client.Execute(request);
   "firebaseTokens": [
     "string"
   ],
-  "createdAt": "2019-07-04T19:09:13Z"
+  "createdAt": "2019-07-04T19:15:16Z"
 }
 ```
 
@@ -241,7 +241,7 @@ IRestResponse response = client.Execute(request);
     "firebaseTokens": [
       "string"
     ],
-    "createdAt": "2019-07-04T19:09:13Z"
+    "createdAt": "2019-07-04T19:15:16Z"
   }
 ]
 ```
@@ -362,7 +362,7 @@ IRestResponse response = client.Execute(request);
   "firebaseTokens": [
     "string"
   ],
-  "createdAt": "2019-07-04T19:09:13Z"
+  "createdAt": "2019-07-04T19:15:16Z"
 }
 ```
 
@@ -475,7 +475,7 @@ IRestResponse response = client.Execute(request);
   "firebaseTokens": [
     "string"
   ],
-  "createdAt": "2019-07-04T19:09:13Z"
+  "createdAt": "2019-07-04T19:15:16Z"
 }
 ```
 
@@ -588,7 +588,7 @@ IRestResponse response = client.Execute(request);
   "firebaseTokens": [
     "string"
   ],
-  "createdAt": "2019-07-04T19:09:13Z"
+  "createdAt": "2019-07-04T19:15:16Z"
 }
 ```
 
@@ -602,9 +602,9 @@ IRestResponse response = client.Execute(request);
 This operation does not require authentication
 </aside>
 
-## #6 PATCH
+## #6 DELETE
 
-<a id="opId#6 PATCH"></a>
+<a id="opId#6 DELETE"></a>
 
 > Code samples
 
@@ -683,7 +683,7 @@ IRestResponse response = client.Execute(request);
 
 `DELETE /v1/users/{userId}`
 
-<h3 id="#6-patch-parameters">Parameters</h3>
+<h3 id="#6-delete-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -691,13 +691,13 @@ IRestResponse response = client.Execute(request);
 
 > Example responses
 
-<h3 id="#6-patch-responses">Responses</h3>
+<h3 id="#6-delete-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |default|Default|default response|None|
 
-<h3 id="#6-patch-responseschema">Response Schema</h3>
+<h3 id="#6-delete-responseschema">Response Schema</h3>
 
 <aside class="success">
 This operation does not require authentication
@@ -717,7 +717,7 @@ This operation does not require authentication
   "firebaseTokens": [
     "string"
   ],
-  "createdAt": "2019-07-04T19:09:13Z"
+  "createdAt": "2019-07-04T19:15:16Z"
 }
 
 ```
