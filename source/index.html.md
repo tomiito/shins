@@ -3,8 +3,9 @@ title: Awesome Title
 language_tabs:
   - shell: curl
   - javascript: JS
-  - node: NodeJS
-  - java: okhttp
+  - node: Node.js
+  - java--okhttp: Java
+  - okhttp: OkHTTP
   - ruby: Ruby
   - python: Python
 toc_footers: []
@@ -55,23 +56,6 @@ $.ajax({
     console.log(JSON.stringify(data));
   }
 })
-
-```
-
-```java
-URL obj = new URL("https://api.notihub.com/v1/users");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
 
 ```
 
@@ -174,23 +158,6 @@ $.ajax({
     console.log(JSON.stringify(data));
   }
 })
-
-```
-
-```java
-URL obj = new URL("https://api.notihub.com/v1/users/all");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
 
 ```
 
