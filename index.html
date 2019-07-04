@@ -101,32 +101,32 @@ window.onpopstate = function() {
               <ul class="toc-list-h2">
                 
                   <li>
-                    <a href="#1" class="toc-h2 toc-link" data-title="">1</a>
+                    <a href="#-5-patch" class="toc-h2 toc-link" data-title="">#5 PATCH</a>
                     
                   </li>
                 
                   <li>
-                    <a href="#2" class="toc-h2 toc-link" data-title="">2</a>
+                    <a href="#-2-get-users" class="toc-h2 toc-link" data-title="">#2 GET USERS</a>
                     
                   </li>
                 
                   <li>
-                    <a href="#3" class="toc-h2 toc-link" data-title="">3</a>
+                    <a href="#-3-create" class="toc-h2 toc-link" data-title="">#3 CREATE</a>
                     
                   </li>
                 
                   <li>
-                    <a href="#4" class="toc-h2 toc-link" data-title="">4</a>
+                    <a href="#-1-get" class="toc-h2 toc-link" data-title="">#1 GET</a>
                     
                   </li>
                 
                   <li>
-                    <a href="#5" class="toc-h2 toc-link" data-title="">5</a>
+                    <a href="#-4-update" class="toc-h2 toc-link" data-title="">#4 UPDATE</a>
                     
                   </li>
                 
                   <li>
-                    <a href="#6" class="toc-h2 toc-link" data-title="">6</a>
+                    <a href="#-6-patch" class="toc-h2 toc-link" data-title="">#6 PATCH</a>
                     
                   </li>
                 
@@ -174,20 +174,20 @@ window.onpopstate = function() {
 <li><a href="https://api.notihub.com/">https://api.notihub.com/</a></li>
 </ul>
 <h1 id="api-docs-users">Users</h1>
-<h2 id="1">1</h2>
-<p><a id="opId1"></a></p>
+<h2 id="-5-patch">#5 PATCH</h2>
+<p><a id="opId#5 PATCH"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight tab tab-shell"><code>curl --request GET \
-  --url https://api.notihub.com//v1/users/string \
+<pre class="highlight tab tab-shell"><code>curl --request PUT \
+  --url https://api.notihub.com//v1/users/string/patch \
   --header <span class="hljs-string">'accept: application/json'</span>
 </code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> settings = {
   <span class="hljs-string">"async"</span>: <span class="hljs-literal">true</span>,
   <span class="hljs-string">"crossDomain"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://api.notihub.com//v1/users/string"</span>,
-  <span class="hljs-string">"method"</span>: <span class="hljs-string">"GET"</span>,
+  <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://api.notihub.com//v1/users/string/patch"</span>,
+  <span class="hljs-string">"method"</span>: <span class="hljs-string">"PUT"</span>,
   <span class="hljs-string">"headers"</span>: {
     <span class="hljs-string">"accept"</span>: <span class="hljs-string">"application/json"</span>
   }
@@ -200,15 +200,15 @@ $.ajax(settings).done(<span class="hljs-function"><span class="hljs-keyword">fun
 <pre class="highlight tab tab-java"><code>OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();
 
 Request request = <span class="hljs-keyword">new</span> Request.Builder()
-  .url(<span class="hljs-string">"https://api.notihub.com//v1/users/string"</span>)
-  .get()
+  .url(<span class="hljs-string">"https://api.notihub.com//v1/users/string/patch"</span>)
+  .put(<span class="hljs-keyword">null</span>)
   .addHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>)
   .build();
 
 Response response = client.newCall(request).execute();
 </code></pre>
-<pre class="highlight tab tab-php"><code>setUrl(<span class="hljs-string">'https://api.notihub.com//v1/users/string'</span>);
-$request-&gt;setMethod(HTTP_METH_GET);
+<pre class="highlight tab tab-php"><code>setUrl(<span class="hljs-string">'https://api.notihub.com//v1/users/string/patch'</span>);
+$request-&gt;setMethod(HTTP_METH_PUT);
 
 $request-&gt;setHeaders(<span class="hljs-keyword">array</span>(
   <span class="hljs-string">'accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
@@ -224,22 +224,21 @@ $request-&gt;setHeaders(<span class="hljs-keyword">array</span>(
 </code></pre>
 <pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
 
-url = <span class="hljs-string">"https://api.notihub.com//v1/users/string"</span>
+url = <span class="hljs-string">"https://api.notihub.com//v1/users/string/patch"</span>
 
 headers = {<span class="hljs-string">'accept'</span>: <span class="hljs-string">'application/json'</span>}
 
-response = requests.request(<span class="hljs-string">"GET"</span>, url, headers=headers)
+response = requests.request(<span class="hljs-string">"PUT"</span>, url, headers=headers)
 
 print(response.text)
 </code></pre>
-<pre class="highlight tab tab-csharp"><code><span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> RestClient(<span class="hljs-string">"https://api.notihub.com//v1/users/string"</span>);
-<span class="hljs-keyword">var</span> request = <span class="hljs-keyword">new</span> RestRequest(Method.GET);
+<pre class="highlight tab tab-csharp"><code><span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> RestClient(<span class="hljs-string">"https://api.notihub.com//v1/users/string/patch"</span>);
+<span class="hljs-keyword">var</span> request = <span class="hljs-keyword">new</span> RestRequest(Method.PUT);
 request.AddHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>);
 IRestResponse response = client.Execute(request);
 </code></pre>
-<p><code>GET /v1/users/{userId}</code></p>
-<p>get</p>
-<h3 id="1-parameters">Parameters</h3>
+<p><code>PUT /v1/users/{userId}/patch</code></p>
+<h3 id="-5-patch-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -273,10 +272,10 @@ IRestResponse response = client.Execute(request);
   <span class="hljs-attr">"firebaseTokens"</span>: [
     <span class="hljs-string">"string"</span>
   ],
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2019-07-04T19:08:18Z"</span>
+  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2019-07-04T19:09:13Z"</span>
 }
 </code></pre>
-<h3 id="1-responses">Responses</h3>
+<h3 id="-5-patch-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -298,8 +297,8 @@ IRestResponse response = client.Execute(request);
 <aside class="success">
 This operation does not require authentication
 </aside>
-<h2 id="2">2</h2>
-<p><a id="opId2"></a></p>
+<h2 id="-2-get-users">#2 GET USERS</h2>
+<p><a id="opId#2 GET USERS"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -362,7 +361,7 @@ request.AddHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-s
 IRestResponse response = client.Execute(request);
 </code></pre>
 <p><code>GET /v1/users</code></p>
-<h3 id="2-parameters">Parameters</h3>
+<h3 id="-2-get-users-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -404,11 +403,11 @@ IRestResponse response = client.Execute(request);
     <span class="hljs-attr">"firebaseTokens"</span>: [
       <span class="hljs-string">"string"</span>
     ],
-    <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2019-07-04T19:08:18Z"</span>
+    <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2019-07-04T19:09:13Z"</span>
   }
 ]
 </code></pre>
-<h3 id="2-responses">Responses</h3>
+<h3 id="-2-get-users-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -427,7 +426,7 @@ IRestResponse response = client.Execute(request);
 </tr>
 </tbody>
 </table>
-<h3 id="2-responseschema">Response Schema</h3>
+<h3 id="-2-get-users-responseschema">Response Schema</h3>
 <p>Status Code <strong>default</strong></p>
 <table>
 <thead>
@@ -487,8 +486,8 @@ IRestResponse response = client.Execute(request);
 <aside class="success">
 This operation does not require authentication
 </aside>
-<h2 id="3">3</h2>
-<p><a id="opId3"></a></p>
+<h2 id="-3-create">#3 CREATE</h2>
+<p><a id="opId#3 CREATE"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -564,10 +563,10 @@ IRestResponse response = client.Execute(request);
   <span class="hljs-attr">"firebaseTokens"</span>: [
     <span class="hljs-string">"string"</span>
   ],
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2019-07-04T19:08:18Z"</span>
+  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2019-07-04T19:09:13Z"</span>
 }
 </code></pre>
-<h3 id="3-responses">Responses</h3>
+<h3 id="-3-create-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -589,8 +588,131 @@ IRestResponse response = client.Execute(request);
 <aside class="success">
 This operation does not require authentication
 </aside>
-<h2 id="4">4</h2>
-<p><a id="opId4"></a></p>
+<h2 id="-1-get">#1 GET</h2>
+<p><a id="opId#1 GET"></a></p>
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="highlight tab tab-shell"><code>curl --request GET \
+  --url https://api.notihub.com//v1/users/string \
+  --header <span class="hljs-string">'accept: application/json'</span>
+</code></pre>
+<pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> settings = {
+  <span class="hljs-string">"async"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-string">"crossDomain"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://api.notihub.com//v1/users/string"</span>,
+  <span class="hljs-string">"method"</span>: <span class="hljs-string">"GET"</span>,
+  <span class="hljs-string">"headers"</span>: {
+    <span class="hljs-string">"accept"</span>: <span class="hljs-string">"application/json"</span>
+  }
+}
+
+$.ajax(settings).done(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(response);
+});
+</code></pre>
+<pre class="highlight tab tab-java"><code>OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();
+
+Request request = <span class="hljs-keyword">new</span> Request.Builder()
+  .url(<span class="hljs-string">"https://api.notihub.com//v1/users/string"</span>)
+  .get()
+  .addHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>)
+  .build();
+
+Response response = client.newCall(request).execute();
+</code></pre>
+<pre class="highlight tab tab-php"><code>setUrl(<span class="hljs-string">'https://api.notihub.com//v1/users/string'</span>);
+$request-&gt;setMethod(HTTP_METH_GET);
+
+$request-&gt;setHeaders(<span class="hljs-keyword">array</span>(
+  <span class="hljs-string">'accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
+));
+
+<span class="hljs-keyword">try</span> {
+  $response = $request-&gt;send();
+
+  <span class="hljs-keyword">echo</span> $response-&gt;getBody();
+} <span class="hljs-keyword">catch</span> (HttpException $ex) {
+  <span class="hljs-keyword">echo</span> $ex;
+}
+</code></pre>
+<pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
+
+url = <span class="hljs-string">"https://api.notihub.com//v1/users/string"</span>
+
+headers = {<span class="hljs-string">'accept'</span>: <span class="hljs-string">'application/json'</span>}
+
+response = requests.request(<span class="hljs-string">"GET"</span>, url, headers=headers)
+
+print(response.text)
+</code></pre>
+<pre class="highlight tab tab-csharp"><code><span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> RestClient(<span class="hljs-string">"https://api.notihub.com//v1/users/string"</span>);
+<span class="hljs-keyword">var</span> request = <span class="hljs-keyword">new</span> RestRequest(Method.GET);
+request.AddHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>);
+IRestResponse response = client.Execute(request);
+</code></pre>
+<p><code>GET /v1/users/{userId}</code></p>
+<h3 id="-1-get-parameters">Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userId</td>
+<td>path</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Example responses</p>
+</blockquote>
+<blockquote>
+<p>default Response</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"firebaseTokens"</span>: [
+    <span class="hljs-string">"string"</span>
+  ],
+  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2019-07-04T19:09:13Z"</span>
+}
+</code></pre>
+<h3 id="-1-get-responses">Responses</h3>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>default</td>
+<td>Default</td>
+<td>default response</td>
+<td><a href="#schemaexternaluserdto">ExternalUserDTO</a></td>
+</tr>
+</tbody>
+</table>
+<aside class="success">
+This operation does not require authentication
+</aside>
+<h2 id="-4-update">#4 UPDATE</h2>
+<p><a id="opId#4 UPDATE"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -653,7 +775,7 @@ request.AddHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-s
 IRestResponse response = client.Execute(request);
 </code></pre>
 <p><code>PUT /v1/users/{userId}</code></p>
-<h3 id="4-parameters">Parameters</h3>
+<h3 id="-4-update-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -687,10 +809,10 @@ IRestResponse response = client.Execute(request);
   <span class="hljs-attr">"firebaseTokens"</span>: [
     <span class="hljs-string">"string"</span>
   ],
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2019-07-04T19:08:18Z"</span>
+  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2019-07-04T19:09:13Z"</span>
 }
 </code></pre>
-<h3 id="4-responses">Responses</h3>
+<h3 id="-4-update-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -712,131 +834,8 @@ IRestResponse response = client.Execute(request);
 <aside class="success">
 This operation does not require authentication
 </aside>
-<h2 id="5">5</h2>
-<p><a id="opId5"></a></p>
-<blockquote>
-<p>Code samples</p>
-</blockquote>
-<pre class="highlight tab tab-shell"><code>curl --request PUT \
-  --url https://api.notihub.com//v1/users/string/patch \
-  --header <span class="hljs-string">'accept: application/json'</span>
-</code></pre>
-<pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> settings = {
-  <span class="hljs-string">"async"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-string">"crossDomain"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://api.notihub.com//v1/users/string/patch"</span>,
-  <span class="hljs-string">"method"</span>: <span class="hljs-string">"PUT"</span>,
-  <span class="hljs-string">"headers"</span>: {
-    <span class="hljs-string">"accept"</span>: <span class="hljs-string">"application/json"</span>
-  }
-}
-
-$.ajax(settings).done(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
-  <span class="hljs-built_in">console</span>.log(response);
-});
-</code></pre>
-<pre class="highlight tab tab-java"><code>OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();
-
-Request request = <span class="hljs-keyword">new</span> Request.Builder()
-  .url(<span class="hljs-string">"https://api.notihub.com//v1/users/string/patch"</span>)
-  .put(<span class="hljs-keyword">null</span>)
-  .addHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>)
-  .build();
-
-Response response = client.newCall(request).execute();
-</code></pre>
-<pre class="highlight tab tab-php"><code>setUrl(<span class="hljs-string">'https://api.notihub.com//v1/users/string/patch'</span>);
-$request-&gt;setMethod(HTTP_METH_PUT);
-
-$request-&gt;setHeaders(<span class="hljs-keyword">array</span>(
-  <span class="hljs-string">'accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
-));
-
-<span class="hljs-keyword">try</span> {
-  $response = $request-&gt;send();
-
-  <span class="hljs-keyword">echo</span> $response-&gt;getBody();
-} <span class="hljs-keyword">catch</span> (HttpException $ex) {
-  <span class="hljs-keyword">echo</span> $ex;
-}
-</code></pre>
-<pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
-
-url = <span class="hljs-string">"https://api.notihub.com//v1/users/string/patch"</span>
-
-headers = {<span class="hljs-string">'accept'</span>: <span class="hljs-string">'application/json'</span>}
-
-response = requests.request(<span class="hljs-string">"PUT"</span>, url, headers=headers)
-
-print(response.text)
-</code></pre>
-<pre class="highlight tab tab-csharp"><code><span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> RestClient(<span class="hljs-string">"https://api.notihub.com//v1/users/string/patch"</span>);
-<span class="hljs-keyword">var</span> request = <span class="hljs-keyword">new</span> RestRequest(Method.PUT);
-request.AddHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>);
-IRestResponse response = client.Execute(request);
-</code></pre>
-<p><code>PUT /v1/users/{userId}/patch</code></p>
-<h3 id="5-parameters">Parameters</h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>In</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>userId</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>none</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<blockquote>
-<p>default Response</p>
-</blockquote>
-<pre class="highlight tab tab-json"><code>{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"firebaseTokens"</span>: [
-    <span class="hljs-string">"string"</span>
-  ],
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2019-07-04T19:08:18Z"</span>
-}
-</code></pre>
-<h3 id="5-responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>default</td>
-<td>Default</td>
-<td>default response</td>
-<td><a href="#schemaexternaluserdto">ExternalUserDTO</a></td>
-</tr>
-</tbody>
-</table>
-<aside class="success">
-This operation does not require authentication
-</aside>
-<h2 id="6">6</h2>
-<p><a id="opId6"></a></p>
+<h2 id="-6-patch">#6 PATCH</h2>
+<p><a id="opId#6 PATCH"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -899,7 +898,7 @@ request.AddHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-s
 IRestResponse response = client.Execute(request);
 </code></pre>
 <p><code>DELETE /v1/users/{userId}</code></p>
-<h3 id="6-parameters">Parameters</h3>
+<h3 id="-6-patch-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -923,7 +922,7 @@ IRestResponse response = client.Execute(request);
 <blockquote>
 <p>Example responses</p>
 </blockquote>
-<h3 id="6-responses">Responses</h3>
+<h3 id="-6-patch-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -942,7 +941,7 @@ IRestResponse response = client.Execute(request);
 </tr>
 </tbody>
 </table>
-<h3 id="6-responseschema">Response Schema</h3>
+<h3 id="-6-patch-responseschema">Response Schema</h3>
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -956,7 +955,7 @@ This operation does not require authentication
   <span class="hljs-attr">"firebaseTokens"</span>: [
     <span class="hljs-string">"string"</span>
   ],
-  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2019-07-04T19:08:18Z"</span>
+  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2019-07-04T19:09:13Z"</span>
 }
 
 </code></pre>
