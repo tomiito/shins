@@ -1,7 +1,10 @@
 ---
 title: Awesome Title
 language_tabs:
-  - 'java:Java'
+  - shell: HTTP
+  - javascript: JavaScript
+  - node: Node.JS
+  - java: Java
 toc_footers: []
 includes: []
 search: true
@@ -27,6 +30,55 @@ Base URLs:
 <a id="opIdgetUsers"></a>
 
 > Code samples
+
+```shell
+curl --request GET \
+  --url https://api.notihub.com/v1/users \
+  --header 'accept: application/json'
+```
+
+```javascript
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://api.notihub.com/v1/users",
+  "method": "GET",
+  "headers": {
+    "accept": "application/json"
+  }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```node
+var request = require("request");
+
+var options = { method: 'GET',
+  url: 'https://api.notihub.com/v1/users',
+  headers: { accept: 'application/json' } };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+
+```
+
+```java
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  .url("https://api.notihub.com/v1/users")
+  .get()
+  .addHeader("accept", "application/json")
+  .build();
+
+Response response = client.newCall(request).execute();
+```
 
 `GET /v1/users`
 
@@ -74,6 +126,55 @@ This operation does not require authentication
 <a id="opIdgetAllUsers"></a>
 
 > Code samples
+
+```shell
+curl --request GET \
+  --url https://api.notihub.com/v1/users/all \
+  --header 'accept: application/json'
+```
+
+```javascript
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://api.notihub.com/v1/users/all",
+  "method": "GET",
+  "headers": {
+    "accept": "application/json"
+  }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```node
+var request = require("request");
+
+var options = { method: 'GET',
+  url: 'https://api.notihub.com/v1/users/all',
+  headers: { accept: 'application/json' } };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+
+```
+
+```java
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  .url("https://api.notihub.com/v1/users/all")
+  .get()
+  .addHeader("accept", "application/json")
+  .build();
+
+Response response = client.newCall(request).execute();
+```
 
 `GET /v1/users/all`
 
