@@ -43,7 +43,7 @@ window.onpopstate = function() {
 <!-- Renderer: Shins v2.3.2-4 -->
   </head>
 
-  <body data-languages="[&quot;shell&quot;,&quot;javascript&quot;,&quot;node&quot;,&quot;java&quot;]">
+  <body data-languages="[&quot;shell&quot;,&quot;javascript&quot;,&quot;java&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -61,10 +61,6 @@ window.onpopstate = function() {
           
             
               <a href="#" data-language-name="javascript">JavaScript</a>
-            
-          
-            
-              <a href="#" data-language-name="node">Node.JS</a>
             
           
             
@@ -163,33 +159,6 @@ window.onpopstate = function() {
 $.ajax(settings).done(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
   <span class="hljs-built_in">console</span>.log(response);
 });
-</code></pre>
-<pre class="highlight"><code>var http = require(&quot;https&quot;);
-
-var options = {
-  &quot;method&quot;: &quot;GET&quot;,
-  &quot;hostname&quot;: &quot;api.notihub.com&quot;,
-  &quot;port&quot;: null,
-  &quot;path&quot;: &quot;/v1/users&quot;,
-  &quot;headers&quot;: {
-    &quot;accept&quot;: &quot;application/json&quot;
-  }
-};
-
-var req = http.request(options, function (res) {
-  var chunks = [];
-
-  res.on(&quot;data&quot;, function (chunk) {
-    chunks.push(chunk);
-  });
-
-  res.on(&quot;end&quot;, function () {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
-});
-
-req.end();
 </code></pre>
 <pre class="highlight tab tab-java"><code>OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();
 
@@ -313,33 +282,6 @@ This operation does not require authentication
 $.ajax(settings).done(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
   <span class="hljs-built_in">console</span>.log(response);
 });
-</code></pre>
-<pre class="highlight"><code>var http = require(&quot;https&quot;);
-
-var options = {
-  &quot;method&quot;: &quot;GET&quot;,
-  &quot;hostname&quot;: &quot;api.notihub.com&quot;,
-  &quot;port&quot;: null,
-  &quot;path&quot;: &quot;/v1/users/all&quot;,
-  &quot;headers&quot;: {
-    &quot;accept&quot;: &quot;application/json&quot;
-  }
-};
-
-var req = http.request(options, function (res) {
-  var chunks = [];
-
-  res.on(&quot;data&quot;, function (chunk) {
-    chunks.push(chunk);
-  });
-
-  res.on(&quot;end&quot;, function () {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
-});
-
-req.end();
 </code></pre>
 <pre class="highlight tab tab-java"><code>OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();
 
@@ -508,10 +450,6 @@ This operation does not require authentication
             
               
                 <a href="#" data-language-name="javascript">JavaScript</a>
-              
-            
-              
-                <a href="#" data-language-name="node">Node.JS</a>
               
             
               
