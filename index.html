@@ -60,7 +60,7 @@ window.onpopstate = function() {
             
           
             
-              <a href="#" data-language-name="node">fetch</a>
+              <a href="#" data-language-name="node">request</a>
             
           
             
@@ -84,12 +84,12 @@ window.onpopstate = function() {
               <ul class="toc-list-h2">
                 
                   <li>
-                    <a href="#getusers" class="toc-h2 toc-link" data-title="">getUsers</a>
+                    <a href="#getallusers" class="toc-h2 toc-link" data-title="">getAllUsers</a>
                     
                   </li>
                 
                   <li>
-                    <a href="#getallusers" class="toc-h2 toc-link" data-title="">getAllUsers</a>
+                    <a href="#getusers" class="toc-h2 toc-link" data-title="">getUsers</a>
                     
                   </li>
                 
@@ -132,152 +132,6 @@ window.onpopstate = function() {
 <li><a href="https://api.notihub.com">https://api.notihub.com</a></li>
 </ul>
 <h1 id="awesome-title-users">Users</h1>
-<h2 id="getusers">getUsers</h2>
-<p><a id="opIdgetUsers"></a></p>
-<blockquote>
-<p>Code samples</p>
-</blockquote>
-<pre class="highlight tab tab-shell"><code>curl --request GET \
-  --url https://api.notihub.com/v1/users \
-  --header <span class="hljs-string">'accept: application/json'</span>
-</code></pre>
-<pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> data = <span class="hljs-literal">null</span>;
-
-<span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
-xhr.withCredentials = <span class="hljs-literal">true</span>;
-
-xhr.addEventListener(<span class="hljs-string">"readystatechange"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.readyState === <span class="hljs-keyword">this</span>.DONE) {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.responseText);
-  }
-});
-
-xhr.open(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"https://api.notihub.com/v1/users"</span>);
-xhr.setRequestHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>);
-
-xhr.send(data);
-</code></pre>
-<pre class="highlight"><code>var http = require(&quot;https&quot;);
-
-var options = {
-  &quot;method&quot;: &quot;GET&quot;,
-  &quot;hostname&quot;: &quot;api.notihub.com&quot;,
-  &quot;port&quot;: null,
-  &quot;path&quot;: &quot;/v1/users&quot;,
-  &quot;headers&quot;: {
-    &quot;accept&quot;: &quot;application/json&quot;
-  }
-};
-
-var req = http.request(options, function (res) {
-  var chunks = [];
-
-  res.on(&quot;data&quot;, function (chunk) {
-    chunks.push(chunk);
-  });
-
-  res.on(&quot;end&quot;, function () {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
-});
-
-req.end();
-</code></pre>
-<pre class="highlight tab tab-java"><code>HttpResponse response = Unirest.get(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>)
-  .header(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>)
-  .asString();
-</code></pre>
-<p><code>GET /v1/users</code></p>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<blockquote>
-<p>default Response</p>
-</blockquote>
-<pre class="highlight tab tab-json"><code>[
-  {
-    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"email"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"firebaseTokens"</span>: [
-      <span class="hljs-string">"string"</span>
-    ]
-  }
-]
-</code></pre>
-<h3 id="getusers-responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>default</td>
-<td>Default</td>
-<td>default response</td>
-<td>Inline</td>
-</tr>
-</tbody>
-</table>
-<h3 id="getusers-responseschema">Response Schema</h3>
-<p>Status Code <strong>default</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Restrictions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><em>anonymous</em></td>
-<td>[<a href="#schemaexternaluserdto">ExternalUserDTO</a>]</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>» id</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>» email</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>» phone</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-<tr>
-<td>» firebaseTokens</td>
-<td>[string]</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
-</tbody>
-</table>
-<aside class="success">
-This operation does not require authentication
-</aside>
 <h2 id="getallusers">getAllUsers</h2>
 <p><a id="opIdgetAllUsers"></a></p>
 <blockquote>
@@ -424,6 +278,152 @@ req.end();
 <aside class="success">
 This operation does not require authentication
 </aside>
+<h2 id="getusers">getUsers</h2>
+<p><a id="opIdgetUsers"></a></p>
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="highlight tab tab-shell"><code>curl --request GET \
+  --url https://api.notihub.com/v1/users \
+  --header <span class="hljs-string">'accept: application/json'</span>
+</code></pre>
+<pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> data = <span class="hljs-literal">null</span>;
+
+<span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
+xhr.withCredentials = <span class="hljs-literal">true</span>;
+
+xhr.addEventListener(<span class="hljs-string">"readystatechange"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.readyState === <span class="hljs-keyword">this</span>.DONE) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.responseText);
+  }
+});
+
+xhr.open(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"https://api.notihub.com/v1/users"</span>);
+xhr.setRequestHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>);
+
+xhr.send(data);
+</code></pre>
+<pre class="highlight"><code>var http = require(&quot;https&quot;);
+
+var options = {
+  &quot;method&quot;: &quot;GET&quot;,
+  &quot;hostname&quot;: &quot;api.notihub.com&quot;,
+  &quot;port&quot;: null,
+  &quot;path&quot;: &quot;/v1/users&quot;,
+  &quot;headers&quot;: {
+    &quot;accept&quot;: &quot;application/json&quot;
+  }
+};
+
+var req = http.request(options, function (res) {
+  var chunks = [];
+
+  res.on(&quot;data&quot;, function (chunk) {
+    chunks.push(chunk);
+  });
+
+  res.on(&quot;end&quot;, function () {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
+});
+
+req.end();
+</code></pre>
+<pre class="highlight tab tab-java"><code>HttpResponse response = Unirest.get(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>)
+  .header(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>)
+  .asString();
+</code></pre>
+<p><code>GET /v1/users</code></p>
+<blockquote>
+<p>Example responses</p>
+</blockquote>
+<blockquote>
+<p>default Response</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>[
+  {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"email"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"firebaseTokens"</span>: [
+      <span class="hljs-string">"string"</span>
+    ]
+  }
+]
+</code></pre>
+<h3 id="getusers-responses">Responses</h3>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>default</td>
+<td>Default</td>
+<td>default response</td>
+<td>Inline</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getusers-responseschema">Response Schema</h3>
+<p>Status Code <strong>default</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>anonymous</em></td>
+<td>[<a href="#schemaexternaluserdto">ExternalUserDTO</a>]</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» id</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» email</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» phone</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» firebaseTokens</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<aside class="success">
+This operation does not require authentication
+</aside>
 <h1 id="schemas">Schemas</h1>
 <h2 id="tocsexternaluserdto">ExternalUserDTO</h2>
 <p><a id="schemaexternaluserdto"></a></p>
@@ -494,7 +494,7 @@ This operation does not require authentication
               
             
               
-                <a href="#" data-language-name="node">fetch</a>
+                <a href="#" data-language-name="node">request</a>
               
             
               
