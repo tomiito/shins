@@ -3,6 +3,7 @@ title: Awesome Title
 language_tabs:
   - shell: HTTP
   - javascript: JavaScript
+  - javascript--nodejs: Node.JS
   - java: Java
 toc_footers: []
 includes: []
