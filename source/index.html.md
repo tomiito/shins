@@ -1,5 +1,5 @@
 ---
-title: Awesome Title
+title: API Docs
 language_tabs:
   - shell: curl
   - javascript: JavaScript
@@ -15,17 +15,17 @@ headingLevel: 2
 
 ---
 
-<h1 id="awesome-title">Awesome Title v0.0</h1>
+<h1 id="api-docs">API Docs v1</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
-My API
+Docs to be filled...
 
 Base URLs:
 
-* <a href="https://api.notihub.com">https://api.notihub.com</a>
+* <a href="https://api.notihub.com/">https://api.notihub.com/</a>
 
-<h1 id="awesome-title-users">Users</h1>
+<h1 id="api-docs-users">Users</h1>
 
 ## getUsers
 
@@ -35,7 +35,7 @@ Base URLs:
 
 ```shell
 curl --request GET \
-  --url https://api.notihub.com/v1/users \
+  --url https://api.notihub.com//v1/users \
   --header 'accept: application/json'
 ```
 
@@ -43,7 +43,7 @@ curl --request GET \
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://api.notihub.com/v1/users",
+  "url": "https://api.notihub.com//v1/users",
   "method": "GET",
   "headers": {
     "accept": "application/json"
@@ -59,7 +59,7 @@ $.ajax(settings).done(function (response) {
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://api.notihub.com/v1/users")
+  .url("https://api.notihub.com//v1/users")
   .get()
   .addHeader("accept", "application/json")
   .build();
@@ -71,7 +71,7 @@ Response response = client.newCall(request).execute();
 <?php
 
 $request = new HttpRequest();
-$request->setUrl('https://api.notihub.com/v1/users');
+$request->setUrl('https://api.notihub.com//v1/users');
 $request->setMethod(HTTP_METH_GET);
 
 $request->setHeaders(array(
@@ -90,7 +90,7 @@ try {
 ```python
 import requests
 
-url = "https://api.notihub.com/v1/users"
+url = "https://api.notihub.com//v1/users"
 
 headers = {'accept': 'application/json'}
 
@@ -100,7 +100,7 @@ print(response.text)
 ```
 
 ```csharp
-var client = new RestClient("https://api.notihub.com/v1/users");
+var client = new RestClient("https://api.notihub.com//v1/users");
 var request = new RestRequest(Method.GET);
 request.AddHeader("accept", "application/json");
 IRestResponse response = client.Execute(request);
@@ -155,7 +155,7 @@ This operation does not require authentication
 
 ```shell
 curl --request GET \
-  --url https://api.notihub.com/v1/users/all \
+  --url https://api.notihub.com//v1/users/all \
   --header 'accept: application/json'
 ```
 
@@ -163,7 +163,7 @@ curl --request GET \
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://api.notihub.com/v1/users/all",
+  "url": "https://api.notihub.com//v1/users/all",
   "method": "GET",
   "headers": {
     "accept": "application/json"
@@ -179,7 +179,7 @@ $.ajax(settings).done(function (response) {
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://api.notihub.com/v1/users/all")
+  .url("https://api.notihub.com//v1/users/all")
   .get()
   .addHeader("accept", "application/json")
   .build();
@@ -191,7 +191,7 @@ Response response = client.newCall(request).execute();
 <?php
 
 $request = new HttpRequest();
-$request->setUrl('https://api.notihub.com/v1/users/all');
+$request->setUrl('https://api.notihub.com//v1/users/all');
 $request->setMethod(HTTP_METH_GET);
 
 $request->setHeaders(array(
@@ -210,7 +210,7 @@ try {
 ```python
 import requests
 
-url = "https://api.notihub.com/v1/users/all"
+url = "https://api.notihub.com//v1/users/all"
 
 headers = {'accept': 'application/json'}
 
@@ -220,7 +220,7 @@ print(response.text)
 ```
 
 ```csharp
-var client = new RestClient("https://api.notihub.com/v1/users/all");
+var client = new RestClient("https://api.notihub.com//v1/users/all");
 var request = new RestRequest(Method.GET);
 request.AddHeader("accept", "application/json");
 IRestResponse response = client.Execute(request);

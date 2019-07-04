@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Awesome Title</title>
+    <title>API Docs</title>
 
     <style>
     </style>
@@ -91,12 +91,12 @@ window.onpopstate = function() {
 	  	<ul class="toc-list-h1">
         
           <li>
-            <a href="#awesome-title" class="toc-h1 toc-link" data-title="Awesome Title v0.0">Awesome Title v0.0</a>
+            <a href="#api-docs" class="toc-h1 toc-link" data-title="API Docs v1">API Docs v1</a>
             
           </li>
         
           <li>
-            <a href="#awesome-title-users" class="toc-h1 toc-link" data-title="Users">Users</a>
+            <a href="#api-docs-users" class="toc-h1 toc-link" data-title="Users">Users</a>
             
               <ul class="toc-list-h2">
                 
@@ -139,29 +139,29 @@ window.onpopstate = function() {
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="awesome-title">Awesome Title v0.0</h1>
+        <h1 id="api-docs">API Docs v1</h1>
 <blockquote>
 <p>Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
 </blockquote>
-<p>My API</p>
+<p>Docs to be filled...</p>
 <p>Base URLs:</p>
 <ul>
-<li><a href="https://api.notihub.com">https://api.notihub.com</a></li>
+<li><a href="https://api.notihub.com/">https://api.notihub.com/</a></li>
 </ul>
-<h1 id="awesome-title-users">Users</h1>
+<h1 id="api-docs-users">Users</h1>
 <h2 id="getusers">getUsers</h2>
 <p><a id="opIdgetUsers"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code>curl --request GET \
-  --url https://api.notihub.com/v1/users \
+  --url https://api.notihub.com//v1/users \
   --header <span class="hljs-string">'accept: application/json'</span>
 </code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> settings = {
   <span class="hljs-string">"async"</span>: <span class="hljs-literal">true</span>,
   <span class="hljs-string">"crossDomain"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://api.notihub.com/v1/users"</span>,
+  <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://api.notihub.com//v1/users"</span>,
   <span class="hljs-string">"method"</span>: <span class="hljs-string">"GET"</span>,
   <span class="hljs-string">"headers"</span>: {
     <span class="hljs-string">"accept"</span>: <span class="hljs-string">"application/json"</span>
@@ -175,14 +175,14 @@ $.ajax(settings).done(<span class="hljs-function"><span class="hljs-keyword">fun
 <pre class="highlight tab tab-java"><code>OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();
 
 Request request = <span class="hljs-keyword">new</span> Request.Builder()
-  .url(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>)
+  .url(<span class="hljs-string">"https://api.notihub.com//v1/users"</span>)
   .get()
   .addHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>)
   .build();
 
 Response response = client.newCall(request).execute();
 </code></pre>
-<pre class="highlight tab tab-php"><code>setUrl(<span class="hljs-string">'https://api.notihub.com/v1/users'</span>);
+<pre class="highlight tab tab-php"><code>setUrl(<span class="hljs-string">'https://api.notihub.com//v1/users'</span>);
 $request-&gt;setMethod(HTTP_METH_GET);
 
 $request-&gt;setHeaders(<span class="hljs-keyword">array</span>(
@@ -199,7 +199,7 @@ $request-&gt;setHeaders(<span class="hljs-keyword">array</span>(
 </code></pre>
 <pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
 
-url = <span class="hljs-string">"https://api.notihub.com/v1/users"</span>
+url = <span class="hljs-string">"https://api.notihub.com//v1/users"</span>
 
 headers = {<span class="hljs-string">'accept'</span>: <span class="hljs-string">'application/json'</span>}
 
@@ -207,7 +207,7 @@ response = requests.request(<span class="hljs-string">"GET"</span>, url, headers
 
 print(response.text)
 </code></pre>
-<pre class="highlight tab tab-csharp"><code><span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> RestClient(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>);
+<pre class="highlight tab tab-csharp"><code><span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> RestClient(<span class="hljs-string">"https://api.notihub.com//v1/users"</span>);
 <span class="hljs-keyword">var</span> request = <span class="hljs-keyword">new</span> RestRequest(Method.GET);
 request.AddHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>);
 IRestResponse response = client.Execute(request);
@@ -308,13 +308,13 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code>curl --request GET \
-  --url https://api.notihub.com/v1/users/all \
+  --url https://api.notihub.com//v1/users/all \
   --header <span class="hljs-string">'accept: application/json'</span>
 </code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> settings = {
   <span class="hljs-string">"async"</span>: <span class="hljs-literal">true</span>,
   <span class="hljs-string">"crossDomain"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>,
+  <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://api.notihub.com//v1/users/all"</span>,
   <span class="hljs-string">"method"</span>: <span class="hljs-string">"GET"</span>,
   <span class="hljs-string">"headers"</span>: {
     <span class="hljs-string">"accept"</span>: <span class="hljs-string">"application/json"</span>
@@ -328,14 +328,14 @@ $.ajax(settings).done(<span class="hljs-function"><span class="hljs-keyword">fun
 <pre class="highlight tab tab-java"><code>OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();
 
 Request request = <span class="hljs-keyword">new</span> Request.Builder()
-  .url(<span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>)
+  .url(<span class="hljs-string">"https://api.notihub.com//v1/users/all"</span>)
   .get()
   .addHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>)
   .build();
 
 Response response = client.newCall(request).execute();
 </code></pre>
-<pre class="highlight tab tab-php"><code>setUrl(<span class="hljs-string">'https://api.notihub.com/v1/users/all'</span>);
+<pre class="highlight tab tab-php"><code>setUrl(<span class="hljs-string">'https://api.notihub.com//v1/users/all'</span>);
 $request-&gt;setMethod(HTTP_METH_GET);
 
 $request-&gt;setHeaders(<span class="hljs-keyword">array</span>(
@@ -352,7 +352,7 @@ $request-&gt;setHeaders(<span class="hljs-keyword">array</span>(
 </code></pre>
 <pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
 
-url = <span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>
+url = <span class="hljs-string">"https://api.notihub.com//v1/users/all"</span>
 
 headers = {<span class="hljs-string">'accept'</span>: <span class="hljs-string">'application/json'</span>}
 
@@ -360,7 +360,7 @@ response = requests.request(<span class="hljs-string">"GET"</span>, url, headers
 
 print(response.text)
 </code></pre>
-<pre class="highlight tab tab-csharp"><code><span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> RestClient(<span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>);
+<pre class="highlight tab tab-csharp"><code><span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> RestClient(<span class="hljs-string">"https://api.notihub.com//v1/users/all"</span>);
 <span class="hljs-keyword">var</span> request = <span class="hljs-keyword">new</span> RestRequest(Method.GET);
 request.AddHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>);
 IRestResponse response = client.Execute(request);
