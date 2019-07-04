@@ -27,15 +27,15 @@ Base URLs:
 
 <h1 id="api-docs-users">Users</h1>
 
-## patch
+## 1
 
-<a id="opIdpatch"></a>
+<a id="opId1"></a>
 
 > Code samples
 
 ```shell
-curl --request PUT \
-  --url https://api.notihub.com//v1/users/string/patch \
+curl --request GET \
+  --url https://api.notihub.com//v1/users/string \
   --header 'accept: application/json'
 ```
 
@@ -43,8 +43,8 @@ curl --request PUT \
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://api.notihub.com//v1/users/string/patch",
-  "method": "PUT",
+  "url": "https://api.notihub.com//v1/users/string",
+  "method": "GET",
   "headers": {
     "accept": "application/json"
   }
@@ -59,8 +59,8 @@ $.ajax(settings).done(function (response) {
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://api.notihub.com//v1/users/string/patch")
-  .put(null)
+  .url("https://api.notihub.com//v1/users/string")
+  .get()
   .addHeader("accept", "application/json")
   .build();
 
@@ -71,8 +71,8 @@ Response response = client.newCall(request).execute();
 <?php
 
 $request = new HttpRequest();
-$request->setUrl('https://api.notihub.com//v1/users/string/patch');
-$request->setMethod(HTTP_METH_PUT);
+$request->setUrl('https://api.notihub.com//v1/users/string');
+$request->setMethod(HTTP_METH_GET);
 
 $request->setHeaders(array(
   'accept' => 'application/json'
@@ -90,25 +90,25 @@ try {
 ```python
 import requests
 
-url = "https://api.notihub.com//v1/users/string/patch"
+url = "https://api.notihub.com//v1/users/string"
 
 headers = {'accept': 'application/json'}
 
-response = requests.request("PUT", url, headers=headers)
+response = requests.request("GET", url, headers=headers)
 
 print(response.text)
 ```
 
 ```csharp
-var client = new RestClient("https://api.notihub.com//v1/users/string/patch");
-var request = new RestRequest(Method.PUT);
+var client = new RestClient("https://api.notihub.com//v1/users/string");
+var request = new RestRequest(Method.GET);
 request.AddHeader("accept", "application/json");
 IRestResponse response = client.Execute(request);
 ```
 
-`PUT /v1/users/{userId}/patch`
+`GET /v1/users/{userId}`
 
-<h3 id="patch-parameters">Parameters</h3>
+<h3 id="1-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -126,11 +126,11 @@ IRestResponse response = client.Execute(request);
   "firebaseTokens": [
     "string"
   ],
-  "createdAt": "2019-07-04T19:03:58Z"
+  "createdAt": "2019-07-04T19:07:47Z"
 }
 ```
 
-<h3 id="patch-responses">Responses</h3>
+<h3 id="1-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -140,9 +140,9 @@ IRestResponse response = client.Execute(request);
 This operation does not require authentication
 </aside>
 
-## getUsers
+## 2
 
-<a id="opIdgetUsers"></a>
+<a id="opId2"></a>
 
 > Code samples
 
@@ -221,7 +221,7 @@ IRestResponse response = client.Execute(request);
 
 `GET /v1/users`
 
-<h3 id="getusers-parameters">Parameters</h3>
+<h3 id="2-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -241,18 +241,18 @@ IRestResponse response = client.Execute(request);
     "firebaseTokens": [
       "string"
     ],
-    "createdAt": "2019-07-04T19:03:58Z"
+    "createdAt": "2019-07-04T19:07:47Z"
   }
 ]
 ```
 
-<h3 id="getusers-responses">Responses</h3>
+<h3 id="2-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |default|Default|default response|Inline|
 
-<h3 id="getusers-responseschema">Response Schema</h3>
+<h3 id="2-responseschema">Response Schema</h3>
 
 Status Code **default**
 
@@ -269,9 +269,9 @@ Status Code **default**
 This operation does not require authentication
 </aside>
 
-## post
+## 3
 
-<a id="opIdpost"></a>
+<a id="opId3"></a>
 
 > Code samples
 
@@ -362,11 +362,11 @@ IRestResponse response = client.Execute(request);
   "firebaseTokens": [
     "string"
   ],
-  "createdAt": "2019-07-04T19:03:58Z"
+  "createdAt": "2019-07-04T19:07:47Z"
 }
 ```
 
-<h3 id="post-responses">Responses</h3>
+<h3 id="3-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -376,122 +376,9 @@ IRestResponse response = client.Execute(request);
 This operation does not require authentication
 </aside>
 
-## get
+## 4
 
-<a id="opIdget"></a>
-
-> Code samples
-
-```shell
-curl --request GET \
-  --url https://api.notihub.com//v1/users/string \
-  --header 'accept: application/json'
-```
-
-```javascript
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://api.notihub.com//v1/users/string",
-  "method": "GET",
-  "headers": {
-    "accept": "application/json"
-  }
-}
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
-```
-
-```java
-OkHttpClient client = new OkHttpClient();
-
-Request request = new Request.Builder()
-  .url("https://api.notihub.com//v1/users/string")
-  .get()
-  .addHeader("accept", "application/json")
-  .build();
-
-Response response = client.newCall(request).execute();
-```
-
-```php
-<?php
-
-$request = new HttpRequest();
-$request->setUrl('https://api.notihub.com//v1/users/string');
-$request->setMethod(HTTP_METH_GET);
-
-$request->setHeaders(array(
-  'accept' => 'application/json'
-));
-
-try {
-  $response = $request->send();
-
-  echo $response->getBody();
-} catch (HttpException $ex) {
-  echo $ex;
-}
-```
-
-```python
-import requests
-
-url = "https://api.notihub.com//v1/users/string"
-
-headers = {'accept': 'application/json'}
-
-response = requests.request("GET", url, headers=headers)
-
-print(response.text)
-```
-
-```csharp
-var client = new RestClient("https://api.notihub.com//v1/users/string");
-var request = new RestRequest(Method.GET);
-request.AddHeader("accept", "application/json");
-IRestResponse response = client.Execute(request);
-```
-
-`GET /v1/users/{userId}`
-
-<h3 id="get-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|userId|path|string|true|none|
-
-> Example responses
-
-> default Response
-
-```json
-{
-  "id": "string",
-  "email": "string",
-  "phone": "string",
-  "firebaseTokens": [
-    "string"
-  ],
-  "createdAt": "2019-07-04T19:03:58Z"
-}
-```
-
-<h3 id="get-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|default response|[ExternalUserDTO](#schemaexternaluserdto)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## update
-
-<a id="opIdupdate"></a>
+<a id="opId4"></a>
 
 > Code samples
 
@@ -570,7 +457,7 @@ IRestResponse response = client.Execute(request);
 
 `PUT /v1/users/{userId}`
 
-<h3 id="update-parameters">Parameters</h3>
+<h3 id="4-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -588,11 +475,11 @@ IRestResponse response = client.Execute(request);
   "firebaseTokens": [
     "string"
   ],
-  "createdAt": "2019-07-04T19:03:58Z"
+  "createdAt": "2019-07-04T19:07:47Z"
 }
 ```
 
-<h3 id="update-responses">Responses</h3>
+<h3 id="4-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -602,9 +489,122 @@ IRestResponse response = client.Execute(request);
 This operation does not require authentication
 </aside>
 
-## delete
+## 5
 
-<a id="opIddelete"></a>
+<a id="opId5"></a>
+
+> Code samples
+
+```shell
+curl --request PUT \
+  --url https://api.notihub.com//v1/users/string/patch \
+  --header 'accept: application/json'
+```
+
+```javascript
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://api.notihub.com//v1/users/string/patch",
+  "method": "PUT",
+  "headers": {
+    "accept": "application/json"
+  }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```java
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  .url("https://api.notihub.com//v1/users/string/patch")
+  .put(null)
+  .addHeader("accept", "application/json")
+  .build();
+
+Response response = client.newCall(request).execute();
+```
+
+```php
+<?php
+
+$request = new HttpRequest();
+$request->setUrl('https://api.notihub.com//v1/users/string/patch');
+$request->setMethod(HTTP_METH_PUT);
+
+$request->setHeaders(array(
+  'accept' => 'application/json'
+));
+
+try {
+  $response = $request->send();
+
+  echo $response->getBody();
+} catch (HttpException $ex) {
+  echo $ex;
+}
+```
+
+```python
+import requests
+
+url = "https://api.notihub.com//v1/users/string/patch"
+
+headers = {'accept': 'application/json'}
+
+response = requests.request("PUT", url, headers=headers)
+
+print(response.text)
+```
+
+```csharp
+var client = new RestClient("https://api.notihub.com//v1/users/string/patch");
+var request = new RestRequest(Method.PUT);
+request.AddHeader("accept", "application/json");
+IRestResponse response = client.Execute(request);
+```
+
+`PUT /v1/users/{userId}/patch`
+
+<h3 id="5-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|userId|path|string|true|none|
+
+> Example responses
+
+> default Response
+
+```json
+{
+  "id": "string",
+  "email": "string",
+  "phone": "string",
+  "firebaseTokens": [
+    "string"
+  ],
+  "createdAt": "2019-07-04T19:07:47Z"
+}
+```
+
+<h3 id="5-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|default response|[ExternalUserDTO](#schemaexternaluserdto)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## 6
+
+<a id="opId6"></a>
 
 > Code samples
 
@@ -683,7 +683,7 @@ IRestResponse response = client.Execute(request);
 
 `DELETE /v1/users/{userId}`
 
-<h3 id="delete-parameters">Parameters</h3>
+<h3 id="6-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -691,13 +691,13 @@ IRestResponse response = client.Execute(request);
 
 > Example responses
 
-<h3 id="delete-responses">Responses</h3>
+<h3 id="6-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |default|Default|default response|None|
 
-<h3 id="delete-responseschema">Response Schema</h3>
+<h3 id="6-responseschema">Response Schema</h3>
 
 <aside class="success">
 This operation does not require authentication
@@ -717,7 +717,7 @@ This operation does not require authentication
   "firebaseTokens": [
     "string"
   ],
-  "createdAt": "2019-07-04T19:03:58Z"
+  "createdAt": "2019-07-04T19:07:47Z"
 }
 
 ```
