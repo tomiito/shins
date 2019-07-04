@@ -2,9 +2,11 @@
 title: Awesome Title
 language_tabs:
   - shell: curl
-  - javascript: JS
-  - node: Node.js
-  - java: Java
+  - node: node
+  - java: java
+  - php: php
+  - ruby: ruby
+  - python: python
 toc_footers: []
 includes: []
 search: false
@@ -25,112 +27,6 @@ Base URLs:
 
 <h1 id="awesome-title-users">Users</h1>
 
-## getAllUsers
-
-<a id="opIdgetAllUsers"></a>
-
-> Code samples
-
-```shell
-curl --request GET \
-  --url https://api.notihub.com/v1/users/all \
-  --header 'accept: application/json'
-```
-
-```javascript
-var data = null;
-
-var xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
-
-xhr.addEventListener("readystatechange", function () {
-  if (this.readyState === this.DONE) {
-    console.log(this.responseText);
-  }
-});
-
-xhr.open("GET", "https://api.notihub.com/v1/users/all");
-xhr.setRequestHeader("accept", "application/json");
-
-xhr.send(data);
-```
-
-```node
-var http = require("https");
-
-var options = {
-  "method": "GET",
-  "hostname": "api.notihub.com",
-  "port": null,
-  "path": "/v1/users/all",
-  "headers": {
-    "accept": "application/json"
-  }
-};
-
-var req = http.request(options, function (res) {
-  var chunks = [];
-
-  res.on("data", function (chunk) {
-    chunks.push(chunk);
-  });
-
-  res.on("end", function () {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
-});
-
-req.end();
-```
-
-```java
-HttpResponse<String> response = Unirest.get("https://api.notihub.com/v1/users/all")
-  .header("accept", "application/json")
-  .asString();
-```
-
-`GET /v1/users/all`
-
-> Example responses
-
-> default Response
-
-```json
-[
-  {
-    "id": "string",
-    "email": "string",
-    "phone": "string",
-    "firebaseTokens": [
-      "string"
-    ]
-  }
-]
-```
-
-<h3 id="getallusers-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|default response|Inline|
-
-<h3 id="getallusers-responseschema">Response Schema</h3>
-
-Status Code **default**
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|*anonymous*|[[ExternalUserDTO](#schemaexternaluserdto)]|false|none|none|
-|» id|string|false|none|none|
-|» email|string|false|none|none|
-|» phone|string|false|none|none|
-|» firebaseTokens|[string]|false|none|none|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
 ## getUsers
 
 <a id="opIdgetUsers"></a>
@@ -141,24 +37,6 @@ This operation does not require authentication
 curl --request GET \
   --url https://api.notihub.com/v1/users \
   --header 'accept: application/json'
-```
-
-```javascript
-var data = null;
-
-var xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
-
-xhr.addEventListener("readystatechange", function () {
-  if (this.readyState === this.DONE) {
-    console.log(this.responseText);
-  }
-});
-
-xhr.open("GET", "https://api.notihub.com/v1/users");
-xhr.setRequestHeader("accept", "application/json");
-
-xhr.send(data);
 ```
 
 ```node
@@ -196,6 +74,68 @@ HttpResponse<String> response = Unirest.get("https://api.notihub.com/v1/users")
   .asString();
 ```
 
+```php
+<?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://api.notihub.com/v1/users",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => array(
+    "accept: application/json"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+```
+
+```ruby
+require 'uri'
+require 'net/http'
+
+url = URI("https://api.notihub.com/v1/users")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Get.new(url)
+request["accept"] = 'application/json'
+
+response = http.request(request)
+puts response.read_body
+```
+
+```python
+import http.client
+
+conn = http.client.HTTPSConnection("api.notihub.com")
+
+headers = { 'accept': "application/json" }
+
+conn.request("GET", "/v1/users", headers=headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))
+```
+
 `GET /v1/users`
 
 > Example responses
@@ -222,6 +162,156 @@ HttpResponse<String> response = Unirest.get("https://api.notihub.com/v1/users")
 |default|Default|default response|Inline|
 
 <h3 id="getusers-responseschema">Response Schema</h3>
+
+Status Code **default**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[[ExternalUserDTO](#schemaexternaluserdto)]|false|none|none|
+|» id|string|false|none|none|
+|» email|string|false|none|none|
+|» phone|string|false|none|none|
+|» firebaseTokens|[string]|false|none|none|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## getAllUsers
+
+<a id="opIdgetAllUsers"></a>
+
+> Code samples
+
+```shell
+curl --request GET \
+  --url https://api.notihub.com/v1/users/all \
+  --header 'accept: application/json'
+```
+
+```node
+var http = require("https");
+
+var options = {
+  "method": "GET",
+  "hostname": "api.notihub.com",
+  "port": null,
+  "path": "/v1/users/all",
+  "headers": {
+    "accept": "application/json"
+  }
+};
+
+var req = http.request(options, function (res) {
+  var chunks = [];
+
+  res.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+  res.on("end", function () {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
+});
+
+req.end();
+```
+
+```java
+HttpResponse<String> response = Unirest.get("https://api.notihub.com/v1/users/all")
+  .header("accept", "application/json")
+  .asString();
+```
+
+```php
+<?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://api.notihub.com/v1/users/all",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => array(
+    "accept: application/json"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+```
+
+```ruby
+require 'uri'
+require 'net/http'
+
+url = URI("https://api.notihub.com/v1/users/all")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Get.new(url)
+request["accept"] = 'application/json'
+
+response = http.request(request)
+puts response.read_body
+```
+
+```python
+import http.client
+
+conn = http.client.HTTPSConnection("api.notihub.com")
+
+headers = { 'accept': "application/json" }
+
+conn.request("GET", "/v1/users/all", headers=headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))
+```
+
+`GET /v1/users/all`
+
+> Example responses
+
+> default Response
+
+```json
+[
+  {
+    "id": "string",
+    "email": "string",
+    "phone": "string",
+    "firebaseTokens": [
+      "string"
+    ]
+  }
+]
+```
+
+<h3 id="getallusers-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|default response|Inline|
+
+<h3 id="getallusers-responseschema">Response Schema</h3>
 
 Status Code **default**
 

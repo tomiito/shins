@@ -39,7 +39,7 @@ window.onpopstate = function() {
 <!-- Renderer: Shins v2.3.2-4 -->
   </head>
 
-  <body data-languages="[&quot;shell&quot;,&quot;javascript&quot;,&quot;node&quot;,&quot;java&quot;]">
+  <body data-languages="[&quot;shell&quot;,&quot;node&quot;,&quot;java&quot;,&quot;php&quot;,&quot;ruby&quot;,&quot;python&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -56,15 +56,23 @@ window.onpopstate = function() {
             
           
             
-              <a href="#" data-language-name="javascript">JS</a>
+              <a href="#" data-language-name="node">node</a>
             
           
             
-              <a href="#" data-language-name="node">Node.js</a>
+              <a href="#" data-language-name="java">java</a>
             
           
             
-              <a href="#" data-language-name="java">Java</a>
+              <a href="#" data-language-name="php">php</a>
+            
+          
+            
+              <a href="#" data-language-name="ruby">ruby</a>
+            
+          
+            
+              <a href="#" data-language-name="python">python</a>
             
           
         </div>
@@ -84,12 +92,12 @@ window.onpopstate = function() {
               <ul class="toc-list-h2">
                 
                   <li>
-                    <a href="#getallusers" class="toc-h2 toc-link" data-title="">getAllUsers</a>
+                    <a href="#getusers" class="toc-h2 toc-link" data-title="">getUsers</a>
                     
                   </li>
                 
                   <li>
-                    <a href="#getusers" class="toc-h2 toc-link" data-title="">getUsers</a>
+                    <a href="#getallusers" class="toc-h2 toc-link" data-title="">getAllUsers</a>
                     
                   </li>
                 
@@ -132,30 +140,14 @@ window.onpopstate = function() {
 <li><a href="https://api.notihub.com">https://api.notihub.com</a></li>
 </ul>
 <h1 id="awesome-title-users">Users</h1>
-<h2 id="getallusers">getAllUsers</h2>
-<p><a id="opIdgetAllUsers"></a></p>
+<h2 id="getusers">getUsers</h2>
+<p><a id="opIdgetUsers"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code>curl --request GET \
-  --url https://api.notihub.com/v1/users/all \
+  --url https://api.notihub.com/v1/users \
   --header <span class="hljs-string">'accept: application/json'</span>
-</code></pre>
-<pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> data = <span class="hljs-literal">null</span>;
-
-<span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
-xhr.withCredentials = <span class="hljs-literal">true</span>;
-
-xhr.addEventListener(<span class="hljs-string">"readystatechange"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.readyState === <span class="hljs-keyword">this</span>.DONE) {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.responseText);
-  }
-});
-
-xhr.open(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>);
-xhr.setRequestHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>);
-
-xhr.send(data);
 </code></pre>
 <pre class="highlight"><code>var http = require(&quot;https&quot;);
 
@@ -163,7 +155,7 @@ var options = {
   &quot;method&quot;: &quot;GET&quot;,
   &quot;hostname&quot;: &quot;api.notihub.com&quot;,
   &quot;port&quot;: null,
-  &quot;path&quot;: &quot;/v1/users/all&quot;,
+  &quot;path&quot;: &quot;/v1/users&quot;,
   &quot;headers&quot;: {
     &quot;accept&quot;: &quot;application/json&quot;
   }
@@ -184,11 +176,62 @@ var req = http.request(options, function (res) {
 
 req.end();
 </code></pre>
-<pre class="highlight tab tab-java"><code>HttpResponse response = Unirest.get(<span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>)
+<pre class="highlight tab tab-java"><code>HttpResponse response = Unirest.get(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>)
   .header(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>)
   .asString();
 </code></pre>
-<p><code>GET /v1/users/all</code></p>
+<pre class="highlight tab tab-php"><code> <span class="hljs-string">"https://api.notihub.com/v1/users"</span>,
+  CURLOPT_RETURNTRANSFER =&gt; <span class="hljs-keyword">true</span>,
+  CURLOPT_ENCODING =&gt; <span class="hljs-string">""</span>,
+  CURLOPT_MAXREDIRS =&gt; <span class="hljs-number">10</span>,
+  CURLOPT_TIMEOUT =&gt; <span class="hljs-number">30</span>,
+  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST =&gt; <span class="hljs-string">"GET"</span>,
+  CURLOPT_HTTPHEADER =&gt; <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">"accept: application/json"</span>
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+<span class="hljs-keyword">if</span> ($err) {
+  <span class="hljs-keyword">echo</span> <span class="hljs-string">"cURL Error #:"</span> . $err;
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-keyword">echo</span> $response;
+}
+</code></pre>
+<pre class="highlight tab tab-ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'uri'</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">'net/http'</span>
+
+url = URI(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>)
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = <span class="hljs-literal">true</span>
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Get.new(url)
+request[<span class="hljs-string">"accept"</span>] = <span class="hljs-string">'application/json'</span>
+
+response = http.request(request)
+puts response.read_body
+</code></pre>
+<pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> http.client
+
+conn = http.client.HTTPSConnection(<span class="hljs-string">"api.notihub.com"</span>)
+
+headers = { <span class="hljs-string">'accept'</span>: <span class="hljs-string">"application/json"</span> }
+
+conn.request(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"/v1/users"</span>, headers=headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode(<span class="hljs-string">"utf-8"</span>))
+</code></pre>
+<p><code>GET /v1/users</code></p>
 <blockquote>
 <p>Example responses</p>
 </blockquote>
@@ -206,7 +249,7 @@ req.end();
   }
 ]
 </code></pre>
-<h3 id="getallusers-responses">Responses</h3>
+<h3 id="getusers-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -225,7 +268,7 @@ req.end();
 </tr>
 </tbody>
 </table>
-<h3 id="getallusers-responseschema">Response Schema</h3>
+<h3 id="getusers-responseschema">Response Schema</h3>
 <p>Status Code <strong>default</strong></p>
 <table>
 <thead>
@@ -278,30 +321,14 @@ req.end();
 <aside class="success">
 This operation does not require authentication
 </aside>
-<h2 id="getusers">getUsers</h2>
-<p><a id="opIdgetUsers"></a></p>
+<h2 id="getallusers">getAllUsers</h2>
+<p><a id="opIdgetAllUsers"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code>curl --request GET \
-  --url https://api.notihub.com/v1/users \
+  --url https://api.notihub.com/v1/users/all \
   --header <span class="hljs-string">'accept: application/json'</span>
-</code></pre>
-<pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> data = <span class="hljs-literal">null</span>;
-
-<span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
-xhr.withCredentials = <span class="hljs-literal">true</span>;
-
-xhr.addEventListener(<span class="hljs-string">"readystatechange"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.readyState === <span class="hljs-keyword">this</span>.DONE) {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.responseText);
-  }
-});
-
-xhr.open(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"https://api.notihub.com/v1/users"</span>);
-xhr.setRequestHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>);
-
-xhr.send(data);
 </code></pre>
 <pre class="highlight"><code>var http = require(&quot;https&quot;);
 
@@ -309,7 +336,7 @@ var options = {
   &quot;method&quot;: &quot;GET&quot;,
   &quot;hostname&quot;: &quot;api.notihub.com&quot;,
   &quot;port&quot;: null,
-  &quot;path&quot;: &quot;/v1/users&quot;,
+  &quot;path&quot;: &quot;/v1/users/all&quot;,
   &quot;headers&quot;: {
     &quot;accept&quot;: &quot;application/json&quot;
   }
@@ -330,11 +357,62 @@ var req = http.request(options, function (res) {
 
 req.end();
 </code></pre>
-<pre class="highlight tab tab-java"><code>HttpResponse response = Unirest.get(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>)
+<pre class="highlight tab tab-java"><code>HttpResponse response = Unirest.get(<span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>)
   .header(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>)
   .asString();
 </code></pre>
-<p><code>GET /v1/users</code></p>
+<pre class="highlight tab tab-php"><code> <span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>,
+  CURLOPT_RETURNTRANSFER =&gt; <span class="hljs-keyword">true</span>,
+  CURLOPT_ENCODING =&gt; <span class="hljs-string">""</span>,
+  CURLOPT_MAXREDIRS =&gt; <span class="hljs-number">10</span>,
+  CURLOPT_TIMEOUT =&gt; <span class="hljs-number">30</span>,
+  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST =&gt; <span class="hljs-string">"GET"</span>,
+  CURLOPT_HTTPHEADER =&gt; <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">"accept: application/json"</span>
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+<span class="hljs-keyword">if</span> ($err) {
+  <span class="hljs-keyword">echo</span> <span class="hljs-string">"cURL Error #:"</span> . $err;
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-keyword">echo</span> $response;
+}
+</code></pre>
+<pre class="highlight tab tab-ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'uri'</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">'net/http'</span>
+
+url = URI(<span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>)
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = <span class="hljs-literal">true</span>
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Get.new(url)
+request[<span class="hljs-string">"accept"</span>] = <span class="hljs-string">'application/json'</span>
+
+response = http.request(request)
+puts response.read_body
+</code></pre>
+<pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> http.client
+
+conn = http.client.HTTPSConnection(<span class="hljs-string">"api.notihub.com"</span>)
+
+headers = { <span class="hljs-string">'accept'</span>: <span class="hljs-string">"application/json"</span> }
+
+conn.request(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"/v1/users/all"</span>, headers=headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode(<span class="hljs-string">"utf-8"</span>))
+</code></pre>
+<p><code>GET /v1/users/all</code></p>
 <blockquote>
 <p>Example responses</p>
 </blockquote>
@@ -352,7 +430,7 @@ req.end();
   }
 ]
 </code></pre>
-<h3 id="getusers-responses">Responses</h3>
+<h3 id="getallusers-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -371,7 +449,7 @@ req.end();
 </tr>
 </tbody>
 </table>
-<h3 id="getusers-responseschema">Response Schema</h3>
+<h3 id="getallusers-responseschema">Response Schema</h3>
 <p>Status Code <strong>default</strong></p>
 <table>
 <thead>
@@ -490,15 +568,23 @@ This operation does not require authentication
               
             
               
-                <a href="#" data-language-name="javascript">JS</a>
+                <a href="#" data-language-name="node">node</a>
               
             
               
-                <a href="#" data-language-name="node">Node.js</a>
+                <a href="#" data-language-name="java">java</a>
               
             
               
-                <a href="#" data-language-name="java">Java</a>
+                <a href="#" data-language-name="php">php</a>
+              
+            
+              
+                <a href="#" data-language-name="ruby">ruby</a>
+              
+            
+              
+                <a href="#" data-language-name="python">python</a>
               
             
           </div>
