@@ -2,8 +2,8 @@
 title: Awesome Title
 language_tabs:
   - shell: curl
-  - node: request
-  - java: okhttp
+  - node: NodeJS
+  - java: Java
 toc_footers: []
 includes: []
 search: false
