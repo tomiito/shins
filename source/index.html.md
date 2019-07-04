@@ -4,8 +4,7 @@ language_tabs:
   - shell: curl
   - javascript: JS
   - node: Node.js
-  - java--okhttp: Java
-  - okhttp: OkHTTP
+  - java: okhttp
   - ruby: Ruby
   - python: Python
 toc_footers: []
@@ -35,58 +34,94 @@ Base URLs:
 > Code samples
 
 ```shell
-# You can also use wget
-curl -X GET https://api.notihub.com/v1/users \
-  -H 'Accept: application/json'
-
+curl --request GET \
+  --url https://api.notihub.com/v1/users \
+  --header 'accept: application/json'
 ```
 
 ```javascript
-var headers = {
-  'Accept':'application/json'
+var data = null;
 
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === this.DONE) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("GET", "https://api.notihub.com/v1/users");
+xhr.setRequestHeader("accept", "application/json");
+
+xhr.send(data);
+```
+
+```node
+var http = require("https");
+
+var options = {
+  "method": "GET",
+  "hostname": "api.notihub.com",
+  "port": null,
+  "path": "/v1/users",
+  "headers": {
+    "accept": "application/json"
+  }
 };
 
-$.ajax({
-  url: 'https://api.notihub.com/v1/users',
-  method: 'get',
+var req = http.request(options, function (res) {
+  var chunks = [];
 
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
+  res.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
 
+  res.on("end", function () {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
+});
+
+req.end();
+```
+
+```java
+HttpResponse<String> response = Unirest.get("https://api.notihub.com/v1/users")
+  .header("accept", "application/json")
+  .asString();
 ```
 
 ```ruby
-require 'rest-client'
-require 'json'
+require 'uri'
+require 'net/http'
 
-headers = {
-  'Accept' => 'application/json'
-}
+url = URI("https://api.notihub.com/v1/users")
 
-result = RestClient.get 'https://api.notihub.com/v1/users',
-  params: {
-  }, headers: headers
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-p JSON.parse(result)
+request = Net::HTTP::Get.new(url)
+request["accept"] = 'application/json'
 
+response = http.request(request)
+puts response.read_body
 ```
 
 ```python
-import requests
-headers = {
-  'Accept': 'application/json'
-}
+import http.client
 
-r = requests.get('https://api.notihub.com/v1/users', params={
+conn = http.client.HTTPSConnection("api.notihub.com")
 
-}, headers = headers)
+headers = { 'accept': "application/json" }
 
-print r.json()
+conn.request("GET", "/v1/users", headers=headers)
 
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))
 ```
 
 `GET /v1/users`
@@ -137,58 +172,94 @@ This operation does not require authentication
 > Code samples
 
 ```shell
-# You can also use wget
-curl -X GET https://api.notihub.com/v1/users/all \
-  -H 'Accept: application/json'
-
+curl --request GET \
+  --url https://api.notihub.com/v1/users/all \
+  --header 'accept: application/json'
 ```
 
 ```javascript
-var headers = {
-  'Accept':'application/json'
+var data = null;
 
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === this.DONE) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("GET", "https://api.notihub.com/v1/users/all");
+xhr.setRequestHeader("accept", "application/json");
+
+xhr.send(data);
+```
+
+```node
+var http = require("https");
+
+var options = {
+  "method": "GET",
+  "hostname": "api.notihub.com",
+  "port": null,
+  "path": "/v1/users/all",
+  "headers": {
+    "accept": "application/json"
+  }
 };
 
-$.ajax({
-  url: 'https://api.notihub.com/v1/users/all',
-  method: 'get',
+var req = http.request(options, function (res) {
+  var chunks = [];
 
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
+  res.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
 
+  res.on("end", function () {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
+});
+
+req.end();
+```
+
+```java
+HttpResponse<String> response = Unirest.get("https://api.notihub.com/v1/users/all")
+  .header("accept", "application/json")
+  .asString();
 ```
 
 ```ruby
-require 'rest-client'
-require 'json'
+require 'uri'
+require 'net/http'
 
-headers = {
-  'Accept' => 'application/json'
-}
+url = URI("https://api.notihub.com/v1/users/all")
 
-result = RestClient.get 'https://api.notihub.com/v1/users/all',
-  params: {
-  }, headers: headers
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-p JSON.parse(result)
+request = Net::HTTP::Get.new(url)
+request["accept"] = 'application/json'
 
+response = http.request(request)
+puts response.read_body
 ```
 
 ```python
-import requests
-headers = {
-  'Accept': 'application/json'
-}
+import http.client
 
-r = requests.get('https://api.notihub.com/v1/users/all', params={
+conn = http.client.HTTPSConnection("api.notihub.com")
 
-}, headers = headers)
+headers = { 'accept': "application/json" }
 
-print r.json()
+conn.request("GET", "/v1/users/all", headers=headers)
 
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))
 ```
 
 `GET /v1/users/all`
