@@ -2,9 +2,9 @@
 title: Awesome Title
 language_tabs:
   - shell: curl
-  - javascript: JavaScript
-  - node: request
-  - java: unirest
+  - javascript: JS
+  - node: NodeJS
+  - java: okhttp
   - ruby: Ruby
   - python: Python
 toc_footers: []
