@@ -43,7 +43,7 @@ window.onpopstate = function() {
 <!-- Renderer: Shins v2.3.2-4 -->
   </head>
 
-  <body data-languages="[&quot;shell&quot;,&quot;javascript&quot;,&quot;java&quot;,&quot;csharp&quot;]">
+  <body data-languages="[&quot;shell&quot;,&quot;javascript&quot;,&quot;java&quot;,&quot;php&quot;,&quot;csharp&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -65,6 +65,10 @@ window.onpopstate = function() {
           
             
               <a href="#" data-language-name="java">Java</a>
+            
+          
+            
+              <a href="#" data-language-name="php">PHP</a>
             
           
             
@@ -93,12 +97,12 @@ window.onpopstate = function() {
               <ul class="toc-list-h2">
                 
                   <li>
-                    <a href="#getusers" class="toc-h2 toc-link" data-title="">getUsers</a>
+                    <a href="#getallusers" class="toc-h2 toc-link" data-title="">getAllUsers</a>
                     
                   </li>
                 
                   <li>
-                    <a href="#getallusers" class="toc-h2 toc-link" data-title="">getAllUsers</a>
+                    <a href="#getusers" class="toc-h2 toc-link" data-title="">getUsers</a>
                     
                   </li>
                 
@@ -141,19 +145,19 @@ window.onpopstate = function() {
 <li><a href="https://api.notihub.com">https://api.notihub.com</a></li>
 </ul>
 <h1 id="awesome-title-users">Users</h1>
-<h2 id="getusers">getUsers</h2>
-<p><a id="opIdgetUsers"></a></p>
+<h2 id="getallusers">getAllUsers</h2>
+<p><a id="opIdgetAllUsers"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code>curl --request GET \
-  --url https://api.notihub.com/v1/users \
+  --url https://api.notihub.com/v1/users/all \
   --header <span class="hljs-string">'accept: application/json'</span>
 </code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> settings = {
   <span class="hljs-string">"async"</span>: <span class="hljs-literal">true</span>,
   <span class="hljs-string">"crossDomain"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://api.notihub.com/v1/users"</span>,
+  <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>,
   <span class="hljs-string">"method"</span>: <span class="hljs-string">"GET"</span>,
   <span class="hljs-string">"headers"</span>: {
     <span class="hljs-string">"accept"</span>: <span class="hljs-string">"application/json"</span>
@@ -167,19 +171,34 @@ $.ajax(settings).done(<span class="hljs-function"><span class="hljs-keyword">fun
 <pre class="highlight tab tab-java"><code>OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();
 
 Request request = <span class="hljs-keyword">new</span> Request.Builder()
-  .url(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>)
+  .url(<span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>)
   .get()
   .addHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>)
   .build();
 
 Response response = client.newCall(request).execute();
 </code></pre>
-<pre class="highlight tab tab-csharp"><code><span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> RestClient(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>);
+<pre class="highlight tab tab-php"><code>setUrl(<span class="hljs-string">'https://api.notihub.com/v1/users/all'</span>);
+$request-&gt;setMethod(HTTP_METH_GET);
+
+$request-&gt;setHeaders(<span class="hljs-keyword">array</span>(
+  <span class="hljs-string">'accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
+));
+
+<span class="hljs-keyword">try</span> {
+  $response = $request-&gt;send();
+
+  <span class="hljs-keyword">echo</span> $response-&gt;getBody();
+} <span class="hljs-keyword">catch</span> (HttpException $ex) {
+  <span class="hljs-keyword">echo</span> $ex;
+}
+</code></pre>
+<pre class="highlight tab tab-csharp"><code><span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> RestClient(<span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>);
 <span class="hljs-keyword">var</span> request = <span class="hljs-keyword">new</span> RestRequest(Method.GET);
 request.AddHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>);
 IRestResponse response = client.Execute(request);
 </code></pre>
-<p><code>GET /v1/users</code></p>
+<p><code>GET /v1/users/all</code></p>
 <blockquote>
 <p>Example responses</p>
 </blockquote>
@@ -197,7 +216,7 @@ IRestResponse response = client.Execute(request);
   }
 ]
 </code></pre>
-<h3 id="getusers-responses">Responses</h3>
+<h3 id="getallusers-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -216,7 +235,7 @@ IRestResponse response = client.Execute(request);
 </tr>
 </tbody>
 </table>
-<h3 id="getusers-responseschema">Response Schema</h3>
+<h3 id="getallusers-responseschema">Response Schema</h3>
 <p>Status Code <strong>default</strong></p>
 <table>
 <thead>
@@ -269,19 +288,19 @@ IRestResponse response = client.Execute(request);
 <aside class="success">
 This operation does not require authentication
 </aside>
-<h2 id="getallusers">getAllUsers</h2>
-<p><a id="opIdgetAllUsers"></a></p>
+<h2 id="getusers">getUsers</h2>
+<p><a id="opIdgetUsers"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code>curl --request GET \
-  --url https://api.notihub.com/v1/users/all \
+  --url https://api.notihub.com/v1/users \
   --header <span class="hljs-string">'accept: application/json'</span>
 </code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> settings = {
   <span class="hljs-string">"async"</span>: <span class="hljs-literal">true</span>,
   <span class="hljs-string">"crossDomain"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>,
+  <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://api.notihub.com/v1/users"</span>,
   <span class="hljs-string">"method"</span>: <span class="hljs-string">"GET"</span>,
   <span class="hljs-string">"headers"</span>: {
     <span class="hljs-string">"accept"</span>: <span class="hljs-string">"application/json"</span>
@@ -295,19 +314,34 @@ $.ajax(settings).done(<span class="hljs-function"><span class="hljs-keyword">fun
 <pre class="highlight tab tab-java"><code>OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();
 
 Request request = <span class="hljs-keyword">new</span> Request.Builder()
-  .url(<span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>)
+  .url(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>)
   .get()
   .addHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>)
   .build();
 
 Response response = client.newCall(request).execute();
 </code></pre>
-<pre class="highlight tab tab-csharp"><code><span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> RestClient(<span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>);
+<pre class="highlight tab tab-php"><code>setUrl(<span class="hljs-string">'https://api.notihub.com/v1/users'</span>);
+$request-&gt;setMethod(HTTP_METH_GET);
+
+$request-&gt;setHeaders(<span class="hljs-keyword">array</span>(
+  <span class="hljs-string">'accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
+));
+
+<span class="hljs-keyword">try</span> {
+  $response = $request-&gt;send();
+
+  <span class="hljs-keyword">echo</span> $response-&gt;getBody();
+} <span class="hljs-keyword">catch</span> (HttpException $ex) {
+  <span class="hljs-keyword">echo</span> $ex;
+}
+</code></pre>
+<pre class="highlight tab tab-csharp"><code><span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> RestClient(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>);
 <span class="hljs-keyword">var</span> request = <span class="hljs-keyword">new</span> RestRequest(Method.GET);
 request.AddHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>);
 IRestResponse response = client.Execute(request);
 </code></pre>
-<p><code>GET /v1/users/all</code></p>
+<p><code>GET /v1/users</code></p>
 <blockquote>
 <p>Example responses</p>
 </blockquote>
@@ -325,7 +359,7 @@ IRestResponse response = client.Execute(request);
   }
 ]
 </code></pre>
-<h3 id="getallusers-responses">Responses</h3>
+<h3 id="getusers-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -344,7 +378,7 @@ IRestResponse response = client.Execute(request);
 </tr>
 </tbody>
 </table>
-<h3 id="getallusers-responseschema">Response Schema</h3>
+<h3 id="getusers-responseschema">Response Schema</h3>
 <p>Status Code <strong>default</strong></p>
 <table>
 <thead>
@@ -468,6 +502,10 @@ This operation does not require authentication
             
               
                 <a href="#" data-language-name="java">Java</a>
+              
+            
+              
+                <a href="#" data-language-name="php">PHP</a>
               
             
               
