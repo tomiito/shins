@@ -1,10 +1,10 @@
 ---
 title: Awesome Title
 language_tabs:
-  - http: 'HTTP,'
-  - javascript: 'JavaScript,'
+  - http: HTTP
+  - javascript: JavaScript
   - javascript--nodejs: Node.JS
-  - ',java': Java
+  - java: Java
   - ruby: Ruby
   - python: Python
 toc_footers: []
@@ -77,6 +77,23 @@ fetch('https://api.notihub.com/v1/users',
 }).then(function(body) {
     console.log(body);
 });
+
+```
+
+```java
+URL obj = new URL("https://api.notihub.com/v1/users");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
 
 ```
 
@@ -201,6 +218,23 @@ fetch('https://api.notihub.com/v1/users/all',
 }).then(function(body) {
     console.log(body);
 });
+
+```
+
+```java
+URL obj = new URL("https://api.notihub.com/v1/users/all");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
 
 ```
 

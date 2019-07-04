@@ -39,7 +39,7 @@ window.onpopstate = function() {
 <!-- Renderer: Shins v2.3.2-4 -->
   </head>
 
-  <body data-languages="[&quot;http&quot;,&quot;javascript&quot;,&quot;javascript--nodejs&quot;,&quot;,java&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body data-languages="[&quot;http&quot;,&quot;javascript&quot;,&quot;javascript--nodejs&quot;,&quot;java&quot;,&quot;ruby&quot;,&quot;python&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -52,11 +52,11 @@ window.onpopstate = function() {
         <div class="lang-selector">
           
             
-              <a href="#" data-language-name="http">HTTP,</a>
+              <a href="#" data-language-name="http">HTTP</a>
             
           
             
-              <a href="#" data-language-name="javascript">JavaScript,</a>
+              <a href="#" data-language-name="javascript">JavaScript</a>
             
           
             
@@ -64,7 +64,7 @@ window.onpopstate = function() {
             
           
             
-              <a href="#" data-language-name=",java">Java</a>
+              <a href="#" data-language-name="java">Java</a>
             
           
             
@@ -184,6 +184,21 @@ fetch(<span class="hljs-string">'https://api.notihub.com/v1/users'</span>,
 }).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">body</span>) </span>{
     <span class="hljs-built_in">console</span>.log(body);
 });
+
+</code></pre>
+<pre class="highlight tab tab-java"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>);
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod(<span class="hljs-string">"GET"</span>);
+<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
+BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
+    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
+<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
 
 </code></pre>
 <pre class="highlight tab tab-ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
@@ -346,6 +361,21 @@ fetch(<span class="hljs-string">'https://api.notihub.com/v1/users/all'</span>,
 }).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">body</span>) </span>{
     <span class="hljs-built_in">console</span>.log(body);
 });
+
+</code></pre>
+<pre class="highlight tab tab-java"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>);
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod(<span class="hljs-string">"GET"</span>);
+<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
+BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
+    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
+<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
 
 </code></pre>
 <pre class="highlight tab tab-ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
@@ -526,11 +556,11 @@ This operation does not require authentication
           <div class="lang-selector">
             
               
-                <a href="#" data-language-name="http">HTTP,</a>
+                <a href="#" data-language-name="http">HTTP</a>
               
             
               
-                <a href="#" data-language-name="javascript">JavaScript,</a>
+                <a href="#" data-language-name="javascript">JavaScript</a>
               
             
               
@@ -538,7 +568,7 @@ This operation does not require authentication
               
             
               
-                <a href="#" data-language-name=",java">Java</a>
+                <a href="#" data-language-name="java">Java</a>
               
             
               
