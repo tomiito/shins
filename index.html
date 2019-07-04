@@ -39,7 +39,7 @@ window.onpopstate = function() {
 <!-- Renderer: Shins v2.3.2-4 -->
   </head>
 
-  <body data-languages="[&quot;http&quot;,&quot;javascript&quot;,&quot;javascript--nodejs&quot;,&quot;java&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body data-languages="[&quot;shell&quot;,&quot;javascript&quot;,&quot;node&quot;,&quot;java&quot;,&quot;ruby&quot;,&quot;python&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -52,7 +52,7 @@ window.onpopstate = function() {
         <div class="lang-selector">
           
             
-              <a href="#" data-language-name="http">HTTP</a>
+              <a href="#" data-language-name="shell">curl</a>
             
           
             
@@ -60,11 +60,11 @@ window.onpopstate = function() {
             
           
             
-              <a href="#" data-language-name="javascript--nodejs">Node.JS</a>
+              <a href="#" data-language-name="node">request</a>
             
           
             
-              <a href="#" data-language-name="java">Java</a>
+              <a href="#" data-language-name="java">unirest</a>
             
           
             
@@ -145,11 +145,11 @@ window.onpopstate = function() {
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight tab tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">https://api.notihub.com/v1/users</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: api.notihub.com
-<span class="hljs-attribute">Accept</span>: application/json
+<pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
+curl -X GET https://api.notihub.com/v1/users \
+  -H <span class="hljs-string">'Accept: application/json'</span>
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
   <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>
 
@@ -164,26 +164,6 @@ $.ajax({
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
-
-</code></pre>
-<pre class="highlight tab tab-javascript--nodejs"><code><span class="hljs-keyword">const</span> fetch = <span class="hljs-built_in">require</span>(<span class="hljs-string">'node-fetch'</span>);
-
-<span class="hljs-keyword">const</span> headers = {
-  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>
-
-};
-
-fetch(<span class="hljs-string">'https://api.notihub.com/v1/users'</span>,
-{
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
-
-  <span class="hljs-attr">headers</span>: headers
-})
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
-    <span class="hljs-keyword">return</span> res.json();
-}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">body</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(body);
-});
 
 </code></pre>
 <pre class="highlight tab tab-java"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>);
@@ -322,11 +302,11 @@ This operation does not require authentication
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight tab tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">https://api.notihub.com/v1/users/all</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: api.notihub.com
-<span class="hljs-attribute">Accept</span>: application/json
+<pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
+curl -X GET https://api.notihub.com/v1/users/all \
+  -H <span class="hljs-string">'Accept: application/json'</span>
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
   <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>
 
@@ -341,26 +321,6 @@ $.ajax({
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
-
-</code></pre>
-<pre class="highlight tab tab-javascript--nodejs"><code><span class="hljs-keyword">const</span> fetch = <span class="hljs-built_in">require</span>(<span class="hljs-string">'node-fetch'</span>);
-
-<span class="hljs-keyword">const</span> headers = {
-  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>
-
-};
-
-fetch(<span class="hljs-string">'https://api.notihub.com/v1/users/all'</span>,
-{
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
-
-  <span class="hljs-attr">headers</span>: headers
-})
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
-    <span class="hljs-keyword">return</span> res.json();
-}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">body</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(body);
-});
 
 </code></pre>
 <pre class="highlight tab tab-java"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>);
@@ -556,7 +516,7 @@ This operation does not require authentication
           <div class="lang-selector">
             
               
-                <a href="#" data-language-name="http">HTTP</a>
+                <a href="#" data-language-name="shell">curl</a>
               
             
               
@@ -564,11 +524,11 @@ This operation does not require authentication
               
             
               
-                <a href="#" data-language-name="javascript--nodejs">Node.JS</a>
+                <a href="#" data-language-name="node">request</a>
               
             
               
-                <a href="#" data-language-name="java">Java</a>
+                <a href="#" data-language-name="java">unirest</a>
               
             
               

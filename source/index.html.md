@@ -1,10 +1,10 @@
 ---
 title: Awesome Title
 language_tabs:
-  - http: HTTP
+  - shell: curl
   - javascript: JavaScript
-  - javascript--nodejs: Node.JS
-  - java: Java
+  - node: request
+  - java: unirest
   - ruby: Ruby
   - python: Python
 toc_footers: []
@@ -33,10 +33,10 @@ Base URLs:
 
 > Code samples
 
-```http
-GET https://api.notihub.com/v1/users HTTP/1.1
-Host: api.notihub.com
-Accept: application/json
+```shell
+# You can also use wget
+curl -X GET https://api.notihub.com/v1/users \
+  -H 'Accept: application/json'
 
 ```
 
@@ -55,28 +55,6 @@ $.ajax({
     console.log(JSON.stringify(data));
   }
 })
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'application/json'
-
-};
-
-fetch('https://api.notihub.com/v1/users',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
 
 ```
 
@@ -174,10 +152,10 @@ This operation does not require authentication
 
 > Code samples
 
-```http
-GET https://api.notihub.com/v1/users/all HTTP/1.1
-Host: api.notihub.com
-Accept: application/json
+```shell
+# You can also use wget
+curl -X GET https://api.notihub.com/v1/users/all \
+  -H 'Accept: application/json'
 
 ```
 
@@ -196,28 +174,6 @@ $.ajax({
     console.log(JSON.stringify(data));
   }
 })
-
-```
-
-```javascript--nodejs
-const fetch = require('node-fetch');
-
-const headers = {
-  'Accept':'application/json'
-
-};
-
-fetch('https://api.notihub.com/v1/users/all',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
 
 ```
 
