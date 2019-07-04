@@ -43,7 +43,7 @@ window.onpopstate = function() {
 <!-- Renderer: Shins v2.3.2-4 -->
   </head>
 
-  <body data-languages="[&quot;shell&quot;,&quot;javascript&quot;,&quot;javascript--nodejs&quot;,&quot;java&quot;]">
+  <body data-languages="[&quot;shell&quot;,&quot;javascript&quot;,&quot;java&quot;,&quot;csharp&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -64,11 +64,11 @@ window.onpopstate = function() {
             
           
             
-              <a href="#" data-language-name="javascript--nodejs">Node.JS</a>
+              <a href="#" data-language-name="java">Java</a>
             
           
             
-              <a href="#" data-language-name="java">Java</a>
+              <a href="#" data-language-name="csharp">C#</a>
             
           
         </div>
@@ -173,6 +173,11 @@ Request request = <span class="hljs-keyword">new</span> Request.Builder()
   .build();
 
 Response response = client.newCall(request).execute();
+</code></pre>
+<pre class="highlight tab tab-csharp"><code><span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> RestClient(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>);
+<span class="hljs-keyword">var</span> request = <span class="hljs-keyword">new</span> RestRequest(Method.GET);
+request.AddHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>);
+IRestResponse response = client.Execute(request);
 </code></pre>
 <p><code>GET /v1/users</code></p>
 <blockquote>
@@ -296,6 +301,11 @@ Request request = <span class="hljs-keyword">new</span> Request.Builder()
   .build();
 
 Response response = client.newCall(request).execute();
+</code></pre>
+<pre class="highlight tab tab-csharp"><code><span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> RestClient(<span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>);
+<span class="hljs-keyword">var</span> request = <span class="hljs-keyword">new</span> RestRequest(Method.GET);
+request.AddHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>);
+IRestResponse response = client.Execute(request);
 </code></pre>
 <p><code>GET /v1/users/all</code></p>
 <blockquote>
@@ -457,11 +467,11 @@ This operation does not require authentication
               
             
               
-                <a href="#" data-language-name="javascript--nodejs">Node.JS</a>
+                <a href="#" data-language-name="java">Java</a>
               
             
               
-                <a href="#" data-language-name="java">Java</a>
+                <a href="#" data-language-name="csharp">C#</a>
               
             
           </div>

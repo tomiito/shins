@@ -3,8 +3,8 @@ title: Awesome Title
 language_tabs:
   - shell: HTTP
   - javascript: JavaScript
-  - javascript--nodejs: Node.JS
   - java: Java
+  - csharp: 'C#'
 toc_footers: []
 includes: []
 search: true
@@ -63,6 +63,13 @@ Request request = new Request.Builder()
   .build();
 
 Response response = client.newCall(request).execute();
+```
+
+```csharp
+var client = new RestClient("https://api.notihub.com/v1/users");
+var request = new RestRequest(Method.GET);
+request.AddHeader("accept", "application/json");
+IRestResponse response = client.Execute(request);
 ```
 
 `GET /v1/users`
@@ -144,6 +151,13 @@ Request request = new Request.Builder()
   .build();
 
 Response response = client.newCall(request).execute();
+```
+
+```csharp
+var client = new RestClient("https://api.notihub.com/v1/users/all");
+var request = new RestRequest(Method.GET);
+request.AddHeader("accept", "application/json");
+IRestResponse response = client.Execute(request);
 ```
 
 `GET /v1/users/all`
