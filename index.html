@@ -164,18 +164,32 @@ $.ajax(settings).done(<span class="hljs-function"><span class="hljs-keyword">fun
   <span class="hljs-built_in">console</span>.log(response);
 });
 </code></pre>
-<pre class="highlight"><code>var request = require(&quot;request&quot;);
+<pre class="highlight"><code>var http = require(&quot;https&quot;);
 
-var options = { method: 'GET',
-  url: 'https://api.notihub.com/v1/users',
-  headers: { accept: 'application/json' } };
+var options = {
+  &quot;method&quot;: &quot;GET&quot;,
+  &quot;hostname&quot;: &quot;api.notihub.com&quot;,
+  &quot;port&quot;: null,
+  &quot;path&quot;: &quot;/v1/users&quot;,
+  &quot;headers&quot;: {
+    &quot;accept&quot;: &quot;application/json&quot;
+  }
+};
 
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
+var req = http.request(options, function (res) {
+  var chunks = [];
 
-  console.log(body);
+  res.on(&quot;data&quot;, function (chunk) {
+    chunks.push(chunk);
+  });
+
+  res.on(&quot;end&quot;, function () {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
 });
 
+req.end();
 </code></pre>
 <pre class="highlight tab tab-java"><code>OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();
 
@@ -300,18 +314,32 @@ $.ajax(settings).done(<span class="hljs-function"><span class="hljs-keyword">fun
   <span class="hljs-built_in">console</span>.log(response);
 });
 </code></pre>
-<pre class="highlight"><code>var request = require(&quot;request&quot;);
+<pre class="highlight"><code>var http = require(&quot;https&quot;);
 
-var options = { method: 'GET',
-  url: 'https://api.notihub.com/v1/users/all',
-  headers: { accept: 'application/json' } };
+var options = {
+  &quot;method&quot;: &quot;GET&quot;,
+  &quot;hostname&quot;: &quot;api.notihub.com&quot;,
+  &quot;port&quot;: null,
+  &quot;path&quot;: &quot;/v1/users/all&quot;,
+  &quot;headers&quot;: {
+    &quot;accept&quot;: &quot;application/json&quot;
+  }
+};
 
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
+var req = http.request(options, function (res) {
+  var chunks = [];
 
-  console.log(body);
+  res.on(&quot;data&quot;, function (chunk) {
+    chunks.push(chunk);
+  });
+
+  res.on(&quot;end&quot;, function () {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
 });
 
+req.end();
 </code></pre>
 <pre class="highlight tab tab-java"><code>OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();
 

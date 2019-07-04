@@ -54,18 +54,32 @@ $.ajax(settings).done(function (response) {
 ```
 
 ```node
-var request = require("request");
+var http = require("https");
 
-var options = { method: 'GET',
-  url: 'https://api.notihub.com/v1/users',
-  headers: { accept: 'application/json' } };
+var options = {
+  "method": "GET",
+  "hostname": "api.notihub.com",
+  "port": null,
+  "path": "/v1/users",
+  "headers": {
+    "accept": "application/json"
+  }
+};
 
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
+var req = http.request(options, function (res) {
+  var chunks = [];
 
-  console.log(body);
+  res.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+  res.on("end", function () {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
 });
 
+req.end();
 ```
 
 ```java
@@ -150,18 +164,32 @@ $.ajax(settings).done(function (response) {
 ```
 
 ```node
-var request = require("request");
+var http = require("https");
 
-var options = { method: 'GET',
-  url: 'https://api.notihub.com/v1/users/all',
-  headers: { accept: 'application/json' } };
+var options = {
+  "method": "GET",
+  "hostname": "api.notihub.com",
+  "port": null,
+  "path": "/v1/users/all",
+  "headers": {
+    "accept": "application/json"
+  }
+};
 
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
+var req = http.request(options, function (res) {
+  var chunks = [];
 
-  console.log(body);
+  res.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+  res.on("end", function () {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
 });
 
+req.end();
 ```
 
 ```java
