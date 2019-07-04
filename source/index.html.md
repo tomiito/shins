@@ -5,6 +5,7 @@ language_tabs:
   - javascript: JavaScript
   - java: Java
   - php: PHP
+  - python: Python
   - csharp: 'C#'
 toc_footers: []
 includes: []
@@ -25,116 +26,6 @@ Base URLs:
 * <a href="https://api.notihub.com">https://api.notihub.com</a>
 
 <h1 id="awesome-title-users">Users</h1>
-
-## getAllUsers
-
-<a id="opIdgetAllUsers"></a>
-
-> Code samples
-
-```shell
-curl --request GET \
-  --url https://api.notihub.com/v1/users/all \
-  --header 'accept: application/json'
-```
-
-```javascript
-var data = null;
-
-var xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
-
-xhr.addEventListener("readystatechange", function () {
-  if (this.readyState === this.DONE) {
-    console.log(this.responseText);
-  }
-});
-
-xhr.open("GET", "https://api.notihub.com/v1/users/all");
-xhr.setRequestHeader("accept", "application/json");
-
-xhr.send(data);
-```
-
-```java
-OkHttpClient client = new OkHttpClient();
-
-Request request = new Request.Builder()
-  .url("https://api.notihub.com/v1/users/all")
-  .get()
-  .addHeader("accept", "application/json")
-  .build();
-
-Response response = client.newCall(request).execute();
-```
-
-```php
-<?php
-
-$request = new HttpRequest();
-$request->setUrl('https://api.notihub.com/v1/users/all');
-$request->setMethod(HTTP_METH_GET);
-
-$request->setHeaders(array(
-  'accept' => 'application/json'
-));
-
-try {
-  $response = $request->send();
-
-  echo $response->getBody();
-} catch (HttpException $ex) {
-  echo $ex;
-}
-```
-
-```csharp
-var client = new RestClient("https://api.notihub.com/v1/users/all");
-var request = new RestRequest(Method.GET);
-request.AddHeader("accept", "application/json");
-IRestResponse response = client.Execute(request);
-```
-
-`GET /v1/users/all`
-
-> Example responses
-
-> default Response
-
-```json
-[
-  {
-    "id": "string",
-    "email": "string",
-    "phone": "string",
-    "firebaseTokens": [
-      "string"
-    ]
-  }
-]
-```
-
-<h3 id="getallusers-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|default|Default|default response|Inline|
-
-<h3 id="getallusers-responseschema">Response Schema</h3>
-
-Status Code **default**
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|*anonymous*|[[ExternalUserDTO](#schemaexternaluserdto)]|false|none|none|
-|» id|string|false|none|none|
-|» email|string|false|none|none|
-|» phone|string|false|none|none|
-|» firebaseTokens|[string]|false|none|none|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
 
 ## getUsers
 
@@ -198,6 +89,18 @@ try {
 }
 ```
 
+```python
+import requests
+
+url = "https://api.notihub.com/v1/users"
+
+headers = {'accept': 'application/json'}
+
+response = requests.request("GET", url, headers=headers)
+
+print(response.text)
+```
+
 ```csharp
 var client = new RestClient("https://api.notihub.com/v1/users");
 var request = new RestRequest(Method.GET);
@@ -231,6 +134,128 @@ IRestResponse response = client.Execute(request);
 |default|Default|default response|Inline|
 
 <h3 id="getusers-responseschema">Response Schema</h3>
+
+Status Code **default**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[[ExternalUserDTO](#schemaexternaluserdto)]|false|none|none|
+|» id|string|false|none|none|
+|» email|string|false|none|none|
+|» phone|string|false|none|none|
+|» firebaseTokens|[string]|false|none|none|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## getAllUsers
+
+<a id="opIdgetAllUsers"></a>
+
+> Code samples
+
+```shell
+curl --request GET \
+  --url https://api.notihub.com/v1/users/all \
+  --header 'accept: application/json'
+```
+
+```javascript
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === this.DONE) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("GET", "https://api.notihub.com/v1/users/all");
+xhr.setRequestHeader("accept", "application/json");
+
+xhr.send(data);
+```
+
+```java
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  .url("https://api.notihub.com/v1/users/all")
+  .get()
+  .addHeader("accept", "application/json")
+  .build();
+
+Response response = client.newCall(request).execute();
+```
+
+```php
+<?php
+
+$request = new HttpRequest();
+$request->setUrl('https://api.notihub.com/v1/users/all');
+$request->setMethod(HTTP_METH_GET);
+
+$request->setHeaders(array(
+  'accept' => 'application/json'
+));
+
+try {
+  $response = $request->send();
+
+  echo $response->getBody();
+} catch (HttpException $ex) {
+  echo $ex;
+}
+```
+
+```python
+import requests
+
+url = "https://api.notihub.com/v1/users/all"
+
+headers = {'accept': 'application/json'}
+
+response = requests.request("GET", url, headers=headers)
+
+print(response.text)
+```
+
+```csharp
+var client = new RestClient("https://api.notihub.com/v1/users/all");
+var request = new RestRequest(Method.GET);
+request.AddHeader("accept", "application/json");
+IRestResponse response = client.Execute(request);
+```
+
+`GET /v1/users/all`
+
+> Example responses
+
+> default Response
+
+```json
+[
+  {
+    "id": "string",
+    "email": "string",
+    "phone": "string",
+    "firebaseTokens": [
+      "string"
+    ]
+  }
+]
+```
+
+<h3 id="getallusers-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|default|Default|default response|Inline|
+
+<h3 id="getallusers-responseschema">Response Schema</h3>
 
 Status Code **default**
 
