@@ -158,21 +158,19 @@ window.onpopstate = function() {
   --url https://api.notihub.com/v1/users \
   --header <span class="hljs-string">'accept: application/json'</span>
 </code></pre>
-<pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> data = <span class="hljs-literal">null</span>;
-
-<span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
-xhr.withCredentials = <span class="hljs-literal">true</span>;
-
-xhr.addEventListener(<span class="hljs-string">"readystatechange"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.readyState === <span class="hljs-keyword">this</span>.DONE) {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.responseText);
+<pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> settings = {
+  <span class="hljs-string">"async"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-string">"crossDomain"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://api.notihub.com/v1/users"</span>,
+  <span class="hljs-string">"method"</span>: <span class="hljs-string">"GET"</span>,
+  <span class="hljs-string">"headers"</span>: {
+    <span class="hljs-string">"accept"</span>: <span class="hljs-string">"application/json"</span>
   }
+}
+
+$.ajax(settings).done(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(response);
 });
-
-xhr.open(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"https://api.notihub.com/v1/users"</span>);
-xhr.setRequestHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>);
-
-xhr.send(data);
 </code></pre>
 <pre class="highlight tab tab-java"><code>OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();
 
@@ -313,21 +311,19 @@ This operation does not require authentication
   --url https://api.notihub.com/v1/users/all \
   --header <span class="hljs-string">'accept: application/json'</span>
 </code></pre>
-<pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> data = <span class="hljs-literal">null</span>;
-
-<span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
-xhr.withCredentials = <span class="hljs-literal">true</span>;
-
-xhr.addEventListener(<span class="hljs-string">"readystatechange"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.readyState === <span class="hljs-keyword">this</span>.DONE) {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.responseText);
+<pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> settings = {
+  <span class="hljs-string">"async"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-string">"crossDomain"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>,
+  <span class="hljs-string">"method"</span>: <span class="hljs-string">"GET"</span>,
+  <span class="hljs-string">"headers"</span>: {
+    <span class="hljs-string">"accept"</span>: <span class="hljs-string">"application/json"</span>
   }
+}
+
+$.ajax(settings).done(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(response);
 });
-
-xhr.open(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>);
-xhr.setRequestHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>);
-
-xhr.send(data);
 </code></pre>
 <pre class="highlight tab tab-java"><code>OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();
 

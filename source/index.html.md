@@ -40,21 +40,19 @@ curl --request GET \
 ```
 
 ```javascript
-var data = null;
-
-var xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
-
-xhr.addEventListener("readystatechange", function () {
-  if (this.readyState === this.DONE) {
-    console.log(this.responseText);
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://api.notihub.com/v1/users",
+  "method": "GET",
+  "headers": {
+    "accept": "application/json"
   }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
 });
-
-xhr.open("GET", "https://api.notihub.com/v1/users");
-xhr.setRequestHeader("accept", "application/json");
-
-xhr.send(data);
 ```
 
 ```java
@@ -162,21 +160,19 @@ curl --request GET \
 ```
 
 ```javascript
-var data = null;
-
-var xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
-
-xhr.addEventListener("readystatechange", function () {
-  if (this.readyState === this.DONE) {
-    console.log(this.responseText);
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://api.notihub.com/v1/users/all",
+  "method": "GET",
+  "headers": {
+    "accept": "application/json"
   }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
 });
-
-xhr.open("GET", "https://api.notihub.com/v1/users/all");
-xhr.setRequestHeader("accept", "application/json");
-
-xhr.send(data);
 ```
 
 ```java
