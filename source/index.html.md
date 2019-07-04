@@ -2,7 +2,7 @@
 title: Awesome Title
 language_tabs:
   - shell: curl
-  - javascript--nodejs: NodeJS
+  - javascript: JS
   - java: Java
 toc_footers: []
 includes: []
@@ -34,6 +34,24 @@ Base URLs:
 curl --request GET \
   --url https://api.notihub.com/v1/users \
   --header 'accept: application/json'
+```
+
+```javascript
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === this.DONE) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("GET", "https://api.notihub.com/v1/users");
+xhr.setRequestHeader("accept", "application/json");
+
+xhr.send(data);
 ```
 
 ```java
@@ -93,6 +111,24 @@ This operation does not require authentication
 curl --request GET \
   --url https://api.notihub.com/v1/users/all \
   --header 'accept: application/json'
+```
+
+```javascript
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === this.DONE) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("GET", "https://api.notihub.com/v1/users/all");
+xhr.setRequestHeader("accept", "application/json");
+
+xhr.send(data);
 ```
 
 ```java

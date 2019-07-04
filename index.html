@@ -39,7 +39,7 @@ window.onpopstate = function() {
 <!-- Renderer: Shins v2.3.2-4 -->
   </head>
 
-  <body data-languages="[&quot;shell&quot;,&quot;javascript--nodejs&quot;,&quot;java&quot;]">
+  <body data-languages="[&quot;shell&quot;,&quot;javascript&quot;,&quot;java&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -56,7 +56,7 @@ window.onpopstate = function() {
             
           
             
-              <a href="#" data-language-name="javascript--nodejs">NodeJS</a>
+              <a href="#" data-language-name="javascript">JS</a>
             
           
             
@@ -136,6 +136,22 @@ window.onpopstate = function() {
 <pre class="highlight tab tab-shell"><code>curl --request GET \
   --url https://api.notihub.com/v1/users \
   --header <span class="hljs-string">'accept: application/json'</span>
+</code></pre>
+<pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> data = <span class="hljs-literal">null</span>;
+
+<span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
+xhr.withCredentials = <span class="hljs-literal">true</span>;
+
+xhr.addEventListener(<span class="hljs-string">"readystatechange"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.readyState === <span class="hljs-keyword">this</span>.DONE) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.responseText);
+  }
+});
+
+xhr.open(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"https://api.notihub.com/v1/users"</span>);
+xhr.setRequestHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>);
+
+xhr.send(data);
 </code></pre>
 <pre class="highlight tab tab-java"><code>HttpResponse response = Unirest.get(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>)
   .header(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>)
@@ -239,6 +255,22 @@ This operation does not require authentication
 <pre class="highlight tab tab-shell"><code>curl --request GET \
   --url https://api.notihub.com/v1/users/all \
   --header <span class="hljs-string">'accept: application/json'</span>
+</code></pre>
+<pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> data = <span class="hljs-literal">null</span>;
+
+<span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
+xhr.withCredentials = <span class="hljs-literal">true</span>;
+
+xhr.addEventListener(<span class="hljs-string">"readystatechange"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.readyState === <span class="hljs-keyword">this</span>.DONE) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.responseText);
+  }
+});
+
+xhr.open(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>);
+xhr.setRequestHeader(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>);
+
+xhr.send(data);
 </code></pre>
 <pre class="highlight tab tab-java"><code>HttpResponse response = Unirest.get(<span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>)
   .header(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>)
@@ -400,7 +432,7 @@ This operation does not require authentication
               
             
               
-                <a href="#" data-language-name="javascript--nodejs">NodeJS</a>
+                <a href="#" data-language-name="javascript">JS</a>
               
             
               
