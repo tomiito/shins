@@ -39,7 +39,7 @@ window.onpopstate = function() {
 <!-- Renderer: Shins v2.3.2-4 -->
   </head>
 
-  <body data-languages="[&quot;shell&quot;,&quot;node&quot;,&quot;java&quot;,&quot;php&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body data-languages="[&quot;http&quot;,&quot;node&quot;,&quot;java&quot;,&quot;php&quot;,&quot;ruby&quot;,&quot;python&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -52,7 +52,7 @@ window.onpopstate = function() {
         <div class="lang-selector">
           
             
-              <a href="#" data-language-name="shell">curl</a>
+              <a href="#" data-language-name="http">http</a>
             
           
             
@@ -145,91 +145,76 @@ window.onpopstate = function() {
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight tab tab-shell"><code>curl --request GET \
-  --url https://api.notihub.com/v1/users \
-  --header <span class="hljs-string">'accept: application/json'</span>
-</code></pre>
-<pre class="highlight"><code>var http = require(&quot;https&quot;);
+<pre class="highlight tab tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">https://api.notihub.com/v1/users</span> HTTP/1.1
+<span class="hljs-attribute">Host</span>: api.notihub.com
+<span class="hljs-attribute">Accept</span>: application/json
 
-var options = {
-  &quot;method&quot;: &quot;GET&quot;,
-  &quot;hostname&quot;: &quot;api.notihub.com&quot;,
-  &quot;port&quot;: null,
-  &quot;path&quot;: &quot;/v1/users&quot;,
-  &quot;headers&quot;: {
-    &quot;accept&quot;: &quot;application/json&quot;
-  }
-};
-
-var req = http.request(options, function (res) {
-  var chunks = [];
-
-  res.on(&quot;data&quot;, function (chunk) {
-    chunks.push(chunk);
-  });
-
-  res.on(&quot;end&quot;, function () {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
-});
-
-req.end();
-</code></pre>
-<pre class="highlight tab tab-java"><code>HttpResponse response = Unirest.get(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>)
-  .header(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>)
-  .asString();
-</code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">"https://api.notihub.com/v1/users"</span>,
-  CURLOPT_RETURNTRANSFER =&gt; <span class="hljs-keyword">true</span>,
-  CURLOPT_ENCODING =&gt; <span class="hljs-string">""</span>,
-  CURLOPT_MAXREDIRS =&gt; <span class="hljs-number">10</span>,
-  CURLOPT_TIMEOUT =&gt; <span class="hljs-number">30</span>,
-  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST =&gt; <span class="hljs-string">"GET"</span>,
-  CURLOPT_HTTPHEADER =&gt; <span class="hljs-keyword">array</span>(
-    <span class="hljs-string">"accept: application/json"</span>
-  ),
-));
-
-$response = curl_exec($curl);
-$err = curl_error($curl);
-
-curl_close($curl);
-
-<span class="hljs-keyword">if</span> ($err) {
-  <span class="hljs-keyword">echo</span> <span class="hljs-string">"cURL Error #:"</span> . $err;
-} <span class="hljs-keyword">else</span> {
-  <span class="hljs-keyword">echo</span> $response;
+<span class="undefined"></span></code></pre>
+<pre class="highlight tab tab-java"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>);
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod(<span class="hljs-string">"GET"</span>);
+<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
+BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
+    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
+<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
+    response.append(inputLine);
 }
+in.close();
+System.out.println(response.toString());
+
 </code></pre>
-<pre class="highlight tab tab-ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'uri'</span>
-<span class="hljs-keyword">require</span> <span class="hljs-string">'net/http'</span>
+<pre class="highlight tab tab-php"><code> <span class="hljs-string">'application/json'</span>,
+    
+    );
 
-url = URI(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>)
+$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
 
-http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = <span class="hljs-literal">true</span>
-http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+<span class="hljs-comment">// Define array of request body.</span>
+$request_body = <span class="hljs-keyword">array</span>();
 
-request = Net::HTTP::Get.new(url)
-request[<span class="hljs-string">"accept"</span>] = <span class="hljs-string">'application/json'</span>
+<span class="hljs-keyword">try</span> {
+    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'https://api.notihub.com/v1/users'</span>, <span class="hljs-keyword">array</span>(
+        <span class="hljs-string">'headers'</span> =&gt; $headers,
+        <span class="hljs-string">'json'</span> =&gt; $request_body,
+       )
+    );
+    print_r($response-&gt;getBody()-&gt;getContents());
+ }
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+    <span class="hljs-comment">// handle exception or api errors.</span>
+    print_r($e-&gt;getMessage());
+ }
 
-response = http.request(request)
-puts response.read_body
+ <span class="hljs-comment">// ...</span>
+
 </code></pre>
-<pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> http.client
+<pre class="highlight tab tab-ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
-conn = http.client.HTTPSConnection(<span class="hljs-string">"api.notihub.com"</span>)
+headers = {
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
+}
 
-headers = { <span class="hljs-string">'accept'</span>: <span class="hljs-string">"application/json"</span> }
+result = RestClient.get <span class="hljs-string">'https://api.notihub.com/v1/users'</span>,
+  <span class="hljs-symbol">params:</span> {
+  }, <span class="hljs-symbol">headers:</span> headers
 
-conn.request(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"/v1/users"</span>, headers=headers)
+p JSON.parse(result)
 
-res = conn.getresponse()
-data = res.read()
+</code></pre>
+<pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
+headers = {
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>
+}
 
-print(data.decode(<span class="hljs-string">"utf-8"</span>))
+r = requests.get(<span class="hljs-string">'https://api.notihub.com/v1/users'</span>, params={
+
+}, headers = headers)
+
+<span class="hljs-keyword">print</span> r.json()
+
 </code></pre>
 <p><code>GET /v1/users</code></p>
 <blockquote>
@@ -326,91 +311,76 @@ This operation does not require authentication
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight tab tab-shell"><code>curl --request GET \
-  --url https://api.notihub.com/v1/users/all \
-  --header <span class="hljs-string">'accept: application/json'</span>
-</code></pre>
-<pre class="highlight"><code>var http = require(&quot;https&quot;);
+<pre class="highlight tab tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">https://api.notihub.com/v1/users/all</span> HTTP/1.1
+<span class="hljs-attribute">Host</span>: api.notihub.com
+<span class="hljs-attribute">Accept</span>: application/json
 
-var options = {
-  &quot;method&quot;: &quot;GET&quot;,
-  &quot;hostname&quot;: &quot;api.notihub.com&quot;,
-  &quot;port&quot;: null,
-  &quot;path&quot;: &quot;/v1/users/all&quot;,
-  &quot;headers&quot;: {
-    &quot;accept&quot;: &quot;application/json&quot;
-  }
-};
-
-var req = http.request(options, function (res) {
-  var chunks = [];
-
-  res.on(&quot;data&quot;, function (chunk) {
-    chunks.push(chunk);
-  });
-
-  res.on(&quot;end&quot;, function () {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
-});
-
-req.end();
-</code></pre>
-<pre class="highlight tab tab-java"><code>HttpResponse response = Unirest.get(<span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>)
-  .header(<span class="hljs-string">"accept"</span>, <span class="hljs-string">"application/json"</span>)
-  .asString();
-</code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>,
-  CURLOPT_RETURNTRANSFER =&gt; <span class="hljs-keyword">true</span>,
-  CURLOPT_ENCODING =&gt; <span class="hljs-string">""</span>,
-  CURLOPT_MAXREDIRS =&gt; <span class="hljs-number">10</span>,
-  CURLOPT_TIMEOUT =&gt; <span class="hljs-number">30</span>,
-  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST =&gt; <span class="hljs-string">"GET"</span>,
-  CURLOPT_HTTPHEADER =&gt; <span class="hljs-keyword">array</span>(
-    <span class="hljs-string">"accept: application/json"</span>
-  ),
-));
-
-$response = curl_exec($curl);
-$err = curl_error($curl);
-
-curl_close($curl);
-
-<span class="hljs-keyword">if</span> ($err) {
-  <span class="hljs-keyword">echo</span> <span class="hljs-string">"cURL Error #:"</span> . $err;
-} <span class="hljs-keyword">else</span> {
-  <span class="hljs-keyword">echo</span> $response;
+<span class="undefined"></span></code></pre>
+<pre class="highlight tab tab-java"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>);
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod(<span class="hljs-string">"GET"</span>);
+<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
+BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
+    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
+<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
+    response.append(inputLine);
 }
+in.close();
+System.out.println(response.toString());
+
 </code></pre>
-<pre class="highlight tab tab-ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'uri'</span>
-<span class="hljs-keyword">require</span> <span class="hljs-string">'net/http'</span>
+<pre class="highlight tab tab-php"><code> <span class="hljs-string">'application/json'</span>,
+    
+    );
 
-url = URI(<span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>)
+$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
 
-http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = <span class="hljs-literal">true</span>
-http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+<span class="hljs-comment">// Define array of request body.</span>
+$request_body = <span class="hljs-keyword">array</span>();
 
-request = Net::HTTP::Get.new(url)
-request[<span class="hljs-string">"accept"</span>] = <span class="hljs-string">'application/json'</span>
+<span class="hljs-keyword">try</span> {
+    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'https://api.notihub.com/v1/users/all'</span>, <span class="hljs-keyword">array</span>(
+        <span class="hljs-string">'headers'</span> =&gt; $headers,
+        <span class="hljs-string">'json'</span> =&gt; $request_body,
+       )
+    );
+    print_r($response-&gt;getBody()-&gt;getContents());
+ }
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+    <span class="hljs-comment">// handle exception or api errors.</span>
+    print_r($e-&gt;getMessage());
+ }
 
-response = http.request(request)
-puts response.read_body
+ <span class="hljs-comment">// ...</span>
+
 </code></pre>
-<pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> http.client
+<pre class="highlight tab tab-ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
-conn = http.client.HTTPSConnection(<span class="hljs-string">"api.notihub.com"</span>)
+headers = {
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
+}
 
-headers = { <span class="hljs-string">'accept'</span>: <span class="hljs-string">"application/json"</span> }
+result = RestClient.get <span class="hljs-string">'https://api.notihub.com/v1/users/all'</span>,
+  <span class="hljs-symbol">params:</span> {
+  }, <span class="hljs-symbol">headers:</span> headers
 
-conn.request(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"/v1/users/all"</span>, headers=headers)
+p JSON.parse(result)
 
-res = conn.getresponse()
-data = res.read()
+</code></pre>
+<pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
+headers = {
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>
+}
 
-print(data.decode(<span class="hljs-string">"utf-8"</span>))
+r = requests.get(<span class="hljs-string">'https://api.notihub.com/v1/users/all'</span>, params={
+
+}, headers = headers)
+
+<span class="hljs-keyword">print</span> r.json()
+
 </code></pre>
 <p><code>GET /v1/users/all</code></p>
 <blockquote>
@@ -564,7 +534,7 @@ This operation does not require authentication
           <div class="lang-selector">
             
               
-                <a href="#" data-language-name="shell">curl</a>
+                <a href="#" data-language-name="http">http</a>
               
             
               

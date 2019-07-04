@@ -1,7 +1,7 @@
 ---
 title: Awesome Title
 language_tabs:
-  - shell: curl
+  - http: http
   - node: node
   - java: java
   - php: php
@@ -33,107 +33,90 @@ Base URLs:
 
 > Code samples
 
-```shell
-curl --request GET \
-  --url https://api.notihub.com/v1/users \
-  --header 'accept: application/json'
-```
+```http
+GET https://api.notihub.com/v1/users HTTP/1.1
+Host: api.notihub.com
+Accept: application/json
 
-```node
-var http = require("https");
-
-var options = {
-  "method": "GET",
-  "hostname": "api.notihub.com",
-  "port": null,
-  "path": "/v1/users",
-  "headers": {
-    "accept": "application/json"
-  }
-};
-
-var req = http.request(options, function (res) {
-  var chunks = [];
-
-  res.on("data", function (chunk) {
-    chunks.push(chunk);
-  });
-
-  res.on("end", function () {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
-});
-
-req.end();
 ```
 
 ```java
-HttpResponse<String> response = Unirest.get("https://api.notihub.com/v1/users")
-  .header("accept", "application/json")
-  .asString();
+URL obj = new URL("https://api.notihub.com/v1/users");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
 ```
 
 ```php
 <?php
 
-$curl = curl_init();
+require 'vendor/autoload.php';
 
-curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.notihub.com/v1/users",
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => "",
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 30,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_HTTPHEADER => array(
-    "accept: application/json"
-  ),
-));
+$headers = array(
+    'Accept' => 'application/json',
+    
+    );
 
-$response = curl_exec($curl);
-$err = curl_error($curl);
+$client = new \GuzzleHttp\Client();
 
-curl_close($curl);
+// Define array of request body.
+$request_body = array();
 
-if ($err) {
-  echo "cURL Error #:" . $err;
-} else {
-  echo $response;
-}
+try {
+    $response = $client->request('GET','https://api.notihub.com/v1/users', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
 ```
 
 ```ruby
-require 'uri'
-require 'net/http'
+require 'rest-client'
+require 'json'
 
-url = URI("https://api.notihub.com/v1/users")
+headers = {
+  'Accept' => 'application/json'
+}
 
-http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = true
-http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+result = RestClient.get 'https://api.notihub.com/v1/users',
+  params: {
+  }, headers: headers
 
-request = Net::HTTP::Get.new(url)
-request["accept"] = 'application/json'
+p JSON.parse(result)
 
-response = http.request(request)
-puts response.read_body
 ```
 
 ```python
-import http.client
+import requests
+headers = {
+  'Accept': 'application/json'
+}
 
-conn = http.client.HTTPSConnection("api.notihub.com")
+r = requests.get('https://api.notihub.com/v1/users', params={
 
-headers = { 'accept': "application/json" }
+}, headers = headers)
 
-conn.request("GET", "/v1/users", headers=headers)
+print r.json()
 
-res = conn.getresponse()
-data = res.read()
-
-print(data.decode("utf-8"))
 ```
 
 `GET /v1/users`
@@ -183,107 +166,90 @@ This operation does not require authentication
 
 > Code samples
 
-```shell
-curl --request GET \
-  --url https://api.notihub.com/v1/users/all \
-  --header 'accept: application/json'
-```
+```http
+GET https://api.notihub.com/v1/users/all HTTP/1.1
+Host: api.notihub.com
+Accept: application/json
 
-```node
-var http = require("https");
-
-var options = {
-  "method": "GET",
-  "hostname": "api.notihub.com",
-  "port": null,
-  "path": "/v1/users/all",
-  "headers": {
-    "accept": "application/json"
-  }
-};
-
-var req = http.request(options, function (res) {
-  var chunks = [];
-
-  res.on("data", function (chunk) {
-    chunks.push(chunk);
-  });
-
-  res.on("end", function () {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
-});
-
-req.end();
 ```
 
 ```java
-HttpResponse<String> response = Unirest.get("https://api.notihub.com/v1/users/all")
-  .header("accept", "application/json")
-  .asString();
+URL obj = new URL("https://api.notihub.com/v1/users/all");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
 ```
 
 ```php
 <?php
 
-$curl = curl_init();
+require 'vendor/autoload.php';
 
-curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.notihub.com/v1/users/all",
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => "",
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 30,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_HTTPHEADER => array(
-    "accept: application/json"
-  ),
-));
+$headers = array(
+    'Accept' => 'application/json',
+    
+    );
 
-$response = curl_exec($curl);
-$err = curl_error($curl);
+$client = new \GuzzleHttp\Client();
 
-curl_close($curl);
+// Define array of request body.
+$request_body = array();
 
-if ($err) {
-  echo "cURL Error #:" . $err;
-} else {
-  echo $response;
-}
+try {
+    $response = $client->request('GET','https://api.notihub.com/v1/users/all', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
 ```
 
 ```ruby
-require 'uri'
-require 'net/http'
+require 'rest-client'
+require 'json'
 
-url = URI("https://api.notihub.com/v1/users/all")
+headers = {
+  'Accept' => 'application/json'
+}
 
-http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = true
-http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+result = RestClient.get 'https://api.notihub.com/v1/users/all',
+  params: {
+  }, headers: headers
 
-request = Net::HTTP::Get.new(url)
-request["accept"] = 'application/json'
+p JSON.parse(result)
 
-response = http.request(request)
-puts response.read_body
 ```
 
 ```python
-import http.client
+import requests
+headers = {
+  'Accept': 'application/json'
+}
 
-conn = http.client.HTTPSConnection("api.notihub.com")
+r = requests.get('https://api.notihub.com/v1/users/all', params={
 
-headers = { 'accept': "application/json" }
+}, headers = headers)
 
-conn.request("GET", "/v1/users/all", headers=headers)
+print r.json()
 
-res = conn.getresponse()
-data = res.read()
-
-print(data.decode("utf-8"))
 ```
 
 `GET /v1/users/all`
