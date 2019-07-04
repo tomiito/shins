@@ -108,6 +108,8 @@ IRestResponse response = client.Execute(request);
 
 `GET /v1/users/{userId}`
 
+get
+
 <h3 id="1-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
@@ -126,7 +128,7 @@ IRestResponse response = client.Execute(request);
   "firebaseTokens": [
     "string"
   ],
-  "createdAt": "2019-07-04T19:07:47Z"
+  "createdAt": "2019-07-04T19:08:18Z"
 }
 ```
 
@@ -241,7 +243,7 @@ IRestResponse response = client.Execute(request);
     "firebaseTokens": [
       "string"
     ],
-    "createdAt": "2019-07-04T19:07:47Z"
+    "createdAt": "2019-07-04T19:08:18Z"
   }
 ]
 ```
@@ -362,7 +364,7 @@ IRestResponse response = client.Execute(request);
   "firebaseTokens": [
     "string"
   ],
-  "createdAt": "2019-07-04T19:07:47Z"
+  "createdAt": "2019-07-04T19:08:18Z"
 }
 ```
 
@@ -475,7 +477,7 @@ IRestResponse response = client.Execute(request);
   "firebaseTokens": [
     "string"
   ],
-  "createdAt": "2019-07-04T19:07:47Z"
+  "createdAt": "2019-07-04T19:08:18Z"
 }
 ```
 
@@ -588,7 +590,7 @@ IRestResponse response = client.Execute(request);
   "firebaseTokens": [
     "string"
   ],
-  "createdAt": "2019-07-04T19:07:47Z"
+  "createdAt": "2019-07-04T19:08:18Z"
 }
 ```
 
@@ -717,7 +719,7 @@ This operation does not require authentication
   "firebaseTokens": [
     "string"
   ],
-  "createdAt": "2019-07-04T19:07:47Z"
+  "createdAt": "2019-07-04T19:08:18Z"
 }
 
 ```
