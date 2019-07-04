@@ -2,7 +2,7 @@
 title: Awesome Title
 language_tabs:
   - shell: curl
-  - node: NodeJS
+  - javascript--nodejs: NodeJS
   - java: Java
 toc_footers: []
 includes: []
@@ -34,35 +34,6 @@ Base URLs:
 curl --request GET \
   --url https://api.notihub.com/v1/users \
   --header 'accept: application/json'
-```
-
-```node
-var http = require("https");
-
-var options = {
-  "method": "GET",
-  "hostname": "api.notihub.com",
-  "port": null,
-  "path": "/v1/users",
-  "headers": {
-    "accept": "application/json"
-  }
-};
-
-var req = http.request(options, function (res) {
-  var chunks = [];
-
-  res.on("data", function (chunk) {
-    chunks.push(chunk);
-  });
-
-  res.on("end", function () {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
-});
-
-req.end();
 ```
 
 ```java
@@ -122,35 +93,6 @@ This operation does not require authentication
 curl --request GET \
   --url https://api.notihub.com/v1/users/all \
   --header 'accept: application/json'
-```
-
-```node
-var http = require("https");
-
-var options = {
-  "method": "GET",
-  "hostname": "api.notihub.com",
-  "port": null,
-  "path": "/v1/users/all",
-  "headers": {
-    "accept": "application/json"
-  }
-};
-
-var req = http.request(options, function (res) {
-  var chunks = [];
-
-  res.on("data", function (chunk) {
-    chunks.push(chunk);
-  });
-
-  res.on("end", function () {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
-});
-
-req.end();
 ```
 
 ```java
