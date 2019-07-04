@@ -16,8 +16,12 @@
     <link rel="stylesheet" media="screen" href="pub/css/darkula.css">
     
       <script src="source/javascripts/lib/_jquery.js"></script>
+<script src="source/javascripts/lib/_jquery.highlight.js"></script>
+<script src="source/javascripts/lib/_lunr.js"></script>
+<script src="source/javascripts/lib/_imagesloaded.min.js"></script>
 <script src="source/javascripts/lib/_energize.js"></script>
 <script src="source/javascripts/app/_lang.js"></script>
+<script src="source/javascripts/app/_search.js"></script>
 <script src="source/javascripts/app/_toc.js"></script>
 <script type="text/javascript">
 $(function() {
@@ -39,7 +43,7 @@ window.onpopstate = function() {
 <!-- Renderer: Shins v2.3.2-4 -->
   </head>
 
-  <body data-languages="[&quot;http&quot;,&quot;node&quot;,&quot;java&quot;,&quot;php&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body data-languages="[&quot;java:Java&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -52,31 +56,16 @@ window.onpopstate = function() {
         <div class="lang-selector">
           
             
-              <a href="#" data-language-name="http">http</a>
-            
-          
-            
-              <a href="#" data-language-name="node">node</a>
-            
-          
-            
-              <a href="#" data-language-name="java">java</a>
-            
-          
-            
-              <a href="#" data-language-name="php">php</a>
-            
-          
-            
-              <a href="#" data-language-name="ruby">ruby</a>
-            
-          
-            
-              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="java:Java">java:Java</a>
             
           
         </div>
       
+      
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
       
       <div id="toc" class="toc-list-h1">
 	  	<ul class="toc-list-h1">
@@ -145,77 +134,6 @@ window.onpopstate = function() {
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight tab tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">https://api.notihub.com/v1/users</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: api.notihub.com
-<span class="hljs-attribute">Accept</span>: application/json
-
-<span class="undefined"></span></code></pre>
-<pre class="highlight tab tab-java"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"https://api.notihub.com/v1/users"</span>);
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod(<span class="hljs-string">"GET"</span>);
-<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
-BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
-    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
-<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-</code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">'application/json'</span>,
-    
-    );
-
-$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
-
-<span class="hljs-comment">// Define array of request body.</span>
-$request_body = <span class="hljs-keyword">array</span>();
-
-<span class="hljs-keyword">try</span> {
-    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'https://api.notihub.com/v1/users'</span>, <span class="hljs-keyword">array</span>(
-        <span class="hljs-string">'headers'</span> =&gt; $headers,
-        <span class="hljs-string">'json'</span> =&gt; $request_body,
-       )
-    );
-    print_r($response-&gt;getBody()-&gt;getContents());
- }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
-    <span class="hljs-comment">// handle exception or api errors.</span>
-    print_r($e-&gt;getMessage());
- }
-
- <span class="hljs-comment">// ...</span>
-
-</code></pre>
-<pre class="highlight tab tab-ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
-<span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
-
-headers = {
-  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
-}
-
-result = RestClient.get <span class="hljs-string">'https://api.notihub.com/v1/users'</span>,
-  <span class="hljs-symbol">params:</span> {
-  }, <span class="hljs-symbol">headers:</span> headers
-
-p JSON.parse(result)
-
-</code></pre>
-<pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
-headers = {
-  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>
-}
-
-r = requests.get(<span class="hljs-string">'https://api.notihub.com/v1/users'</span>, params={
-
-}, headers = headers)
-
-<span class="hljs-keyword">print</span> r.json()
-
-</code></pre>
 <p><code>GET /v1/users</code></p>
 <blockquote>
 <p>Example responses</p>
@@ -311,77 +229,6 @@ This operation does not require authentication
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight tab tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">https://api.notihub.com/v1/users/all</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: api.notihub.com
-<span class="hljs-attribute">Accept</span>: application/json
-
-<span class="undefined"></span></code></pre>
-<pre class="highlight tab tab-java"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"https://api.notihub.com/v1/users/all"</span>);
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod(<span class="hljs-string">"GET"</span>);
-<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
-BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
-    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
-<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-</code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">'application/json'</span>,
-    
-    );
-
-$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
-
-<span class="hljs-comment">// Define array of request body.</span>
-$request_body = <span class="hljs-keyword">array</span>();
-
-<span class="hljs-keyword">try</span> {
-    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'https://api.notihub.com/v1/users/all'</span>, <span class="hljs-keyword">array</span>(
-        <span class="hljs-string">'headers'</span> =&gt; $headers,
-        <span class="hljs-string">'json'</span> =&gt; $request_body,
-       )
-    );
-    print_r($response-&gt;getBody()-&gt;getContents());
- }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
-    <span class="hljs-comment">// handle exception or api errors.</span>
-    print_r($e-&gt;getMessage());
- }
-
- <span class="hljs-comment">// ...</span>
-
-</code></pre>
-<pre class="highlight tab tab-ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
-<span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
-
-headers = {
-  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
-}
-
-result = RestClient.get <span class="hljs-string">'https://api.notihub.com/v1/users/all'</span>,
-  <span class="hljs-symbol">params:</span> {
-  }, <span class="hljs-symbol">headers:</span> headers
-
-p JSON.parse(result)
-
-</code></pre>
-<pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
-headers = {
-  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>
-}
-
-r = requests.get(<span class="hljs-string">'https://api.notihub.com/v1/users/all'</span>, params={
-
-}, headers = headers)
-
-<span class="hljs-keyword">print</span> r.json()
-
-</code></pre>
 <p><code>GET /v1/users/all</code></p>
 <blockquote>
 <p>Example responses</p>
@@ -534,27 +381,7 @@ This operation does not require authentication
           <div class="lang-selector">
             
               
-                <a href="#" data-language-name="http">http</a>
-              
-            
-              
-                <a href="#" data-language-name="node">node</a>
-              
-            
-              
-                <a href="#" data-language-name="java">java</a>
-              
-            
-              
-                <a href="#" data-language-name="php">php</a>
-              
-            
-              
-                <a href="#" data-language-name="ruby">ruby</a>
-              
-            
-              
-                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="java:Java">java:Java</a>
               
             
           </div>
